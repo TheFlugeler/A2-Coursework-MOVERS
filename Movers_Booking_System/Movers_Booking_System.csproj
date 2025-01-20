@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="bin\Debug\net8.0-windows\Media\NotVisible.png" />
+    <Content Include="bin\Debug\net8.0-windows\Media\PrintLogo.png" />
+    <Content Include="bin\Debug\net8.0-windows\Media\Visible.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DateTimeExtensions" Version="5.11.7" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Media\SystemImages.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>SystemImages.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Media\SystemImages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SystemImages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>
