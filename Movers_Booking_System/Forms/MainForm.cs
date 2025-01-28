@@ -1,4 +1,7 @@
 ﻿using Movers_Booking_System.Controllers;
+using Movers_Booking_System.Models;
+using Movers_Booking_System.Tools;
+using System.Data.Common;
 
 namespace Movers_Booking_System.Forms;
 public partial class MainForm : Form
@@ -17,6 +20,8 @@ public partial class MainForm : Form
         panelDatabaseDropdown.Height = panelDatabaseDropdown.MinimumSize.Height;
         panelProfileDropdown.Height = panelProfileDropdown.MinimumSize.Height;
         panelPrintDropdown.Height = panelPrintDropdown.MinimumSize.Height;
+        pictureBoxProfile.Image = ProfileController.GetProfileImage(DAL.GetStaffDetails(StaffUsername).Profile);
+
     }
 
     private void panelFormDropdownButton_Click(object sender, EventArgs e) => InitiateDropdown("Form");
@@ -120,4 +125,8 @@ public partial class MainForm : Form
     private void buttonPrintInspection_Click(object sender, EventArgs e) => DisplayController.DisplayForm(new PrintForm(false));
 
     private void buttonPrintSchedule_Click(object sender, EventArgs e) => DisplayController.DisplayForm(new ScheduleForm());
+
+    private void buttonProfile_Click(object sender, EventArgs e) => DisplayController.DisplayForm(new ProfileForm(false));
+
+    private void buttonMessages_Click(object sender, EventArgs e) => DisplayController.DisplayForm(new MessagesForm());
 }

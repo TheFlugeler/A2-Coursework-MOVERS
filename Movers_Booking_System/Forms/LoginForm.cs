@@ -28,6 +28,7 @@ public partial class LoginForm : Form
         Application.DoEvents();
         if (LoginController.ValidateLoginDetails(textBoxUsername.Text, textBoxPassword.Text))
         {
+            MainForm.StaffUsername = textBoxUsername.Text;
             DisplayController.DisplayForm(new MainForm());
         }
         else MessageBox.Show("Incorrect User Details", "Error");

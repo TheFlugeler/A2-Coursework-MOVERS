@@ -81,12 +81,17 @@ static class DatabaseController
         if (database == "Job")
         {
             int noItems = DAL.GetNoSpecialItems(id);
-            errorMessage = $"Deleting this record will result in {noItems} records being deleted\nDo you wish to continue?";
+            errorMessage = $"Deleting this record will result in {noItems} connecting records being deleted\nDo you wish to continue?";
         }
         else if (database == "SpecialItem")
         {
             int noJobs = DAL.GetNoJobs(id);
-            errorMessage = $"Deleting this record will result in {noJobs} records being deleted\nDo you wish to continue?";
+            errorMessage = $"Deleting this record will result in {noJobs} connecting records being deleted\nDo you wish to continue?";
+        }
+        else if (database == "Customer")
+        {
+            int noRecords = DAL.GetNoCustomerRecords(id);
+            errorMessage = $"Deleting this record will result in {noRecords} Job/ Inspection records being deleted\nDo you wish to continue?";
         }
         return true;
     }

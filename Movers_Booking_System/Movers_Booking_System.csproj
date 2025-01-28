@@ -12,6 +12,12 @@
     <Content Include="bin\Debug\net8.0-windows\Media\NotVisible.png" />
     <Content Include="bin\Debug\net8.0-windows\Media\PrintLogo.png" />
     <Content Include="bin\Debug\net8.0-windows\Media\Visible.png" />
+    <Content Include="bin\Debug\net8.0-windows\Profiles\Female-Profile-1.png" />
+    <Content Include="bin\Debug\net8.0-windows\Profiles\Female-Profile-2.png" />
+    <Content Include="bin\Debug\net8.0-windows\Profiles\Female-Profile-3.png" />
+    <Content Include="bin\Debug\net8.0-windows\Profiles\Male-Profile-1.png" />
+    <Content Include="bin\Debug\net8.0-windows\Profiles\Male-Profile-2.png" />
+    <Content Include="bin\Debug\net8.0-windows\Profiles\Male-Profile-3.png" />
   </ItemGroup>
 
   <ItemGroup>

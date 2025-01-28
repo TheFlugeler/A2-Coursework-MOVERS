@@ -58,13 +58,13 @@
             buttonProfile = new Button();
             timerProfileDropdown = new System.Windows.Forms.Timer(components);
             panelPrintDropdown = new Panel();
+            buttonPrintSchedule = new Button();
             buttonPrintInspection = new Button();
             buttonPrintJob = new Button();
             panelPrintButton = new Panel();
             labelPrint = new Label();
             pictureBoxPrint = new PictureBox();
             timerPrintDropdown = new System.Windows.Forms.Timer(components);
-            buttonPrintSchedule = new Button();
             panelTopBar.SuspendLayout();
             panelFormDropdown.SuspendLayout();
             panelFormDropdownButton.SuspendLayout();
@@ -358,10 +358,10 @@
             // 
             // pictureBoxProfile
             // 
-            pictureBoxProfile.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBoxProfile.Location = new Point(13, 13);
             pictureBoxProfile.Name = "pictureBoxProfile";
             pictureBoxProfile.Size = new Size(75, 75);
+            pictureBoxProfile.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBoxProfile.TabIndex = 1;
             pictureBoxProfile.TabStop = false;
             pictureBoxProfile.Click += panelProfileButton_Click;
@@ -410,6 +410,7 @@
             buttonMessages.Size = new Size(100, 60);
             buttonMessages.TabIndex = 3;
             buttonMessages.UseVisualStyleBackColor = true;
+            buttonMessages.Click += buttonMessages_Click;
             // 
             // buttonProfile
             // 
@@ -426,6 +427,7 @@
             buttonProfile.Size = new Size(100, 60);
             buttonProfile.TabIndex = 2;
             buttonProfile.UseVisualStyleBackColor = true;
+            buttonProfile.Click += buttonProfile_Click;
             // 
             // timerProfileDropdown
             // 
@@ -445,6 +447,21 @@
             panelPrintDropdown.Name = "panelPrintDropdown";
             panelPrintDropdown.Size = new Size(160, 280);
             panelPrintDropdown.TabIndex = 6;
+            // 
+            // buttonPrintSchedule
+            // 
+            buttonPrintSchedule.Dock = DockStyle.Top;
+            buttonPrintSchedule.FlatAppearance.BorderSize = 0;
+            buttonPrintSchedule.FlatStyle = FlatStyle.Flat;
+            buttonPrintSchedule.Font = new Font("Bahnschrift", 12F);
+            buttonPrintSchedule.ForeColor = Color.White;
+            buttonPrintSchedule.Location = new Point(0, 220);
+            buttonPrintSchedule.Name = "buttonPrintSchedule";
+            buttonPrintSchedule.Size = new Size(160, 60);
+            buttonPrintSchedule.TabIndex = 4;
+            buttonPrintSchedule.Text = "Schedule";
+            buttonPrintSchedule.UseVisualStyleBackColor = true;
+            buttonPrintSchedule.Click += buttonPrintSchedule_Click;
             // 
             // buttonPrintInspection
             // 
@@ -515,21 +532,6 @@
             // 
             timerPrintDropdown.Interval = 10;
             timerPrintDropdown.Tick += timerPrintDropdown_Tick;
-            // 
-            // buttonPrintSchedule
-            // 
-            buttonPrintSchedule.Dock = DockStyle.Top;
-            buttonPrintSchedule.FlatAppearance.BorderSize = 0;
-            buttonPrintSchedule.FlatStyle = FlatStyle.Flat;
-            buttonPrintSchedule.Font = new Font("Bahnschrift", 12F);
-            buttonPrintSchedule.ForeColor = Color.White;
-            buttonPrintSchedule.Location = new Point(0, 220);
-            buttonPrintSchedule.Name = "buttonPrintSchedule";
-            buttonPrintSchedule.Size = new Size(160, 60);
-            buttonPrintSchedule.TabIndex = 4;
-            buttonPrintSchedule.Text = "Schedule";
-            buttonPrintSchedule.UseVisualStyleBackColor = true;
-            buttonPrintSchedule.Click += buttonPrintSchedule_Click;
             // 
             // MainForm
             // 

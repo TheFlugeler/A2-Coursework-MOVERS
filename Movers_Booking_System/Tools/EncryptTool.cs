@@ -17,6 +17,7 @@ public static class EncryptTool
         string hashString = Convert.ToBase64String(hashedBytes);
         return new List<string>() { hashString, salt };
     }
+    
     private static string GenerateSalt()
     {
         int saltLength = 32;

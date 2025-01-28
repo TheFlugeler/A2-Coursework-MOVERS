@@ -3,6 +3,7 @@ using Movers_Booking_System.Controllers;
 using Movers_Booking_System.Models;
 using System.Configuration;
 using System.Data;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Movers_Booking_System.Tools;
 
@@ -166,7 +167,8 @@ public static class DAL
             reader.Read();
             if (reader.HasRows)
             {
-                staff = new((string)reader["Username"], (string)reader["Password"], (string)reader["Salt"], (string)reader["Forename"], (string)reader["Surname"]);
+                staff = new((string)reader["Username"], (string)reader["Password"], (string)reader["Salt"], 
+                    (string)reader["Forename"], (string)reader["Surname"], (int)reader["Profile"]);
             }
             else staff = null;
             connection.Close();
@@ -183,7 +185,7 @@ public static class DAL
         {
             connection.Open();
 
-            string query = $"SELECT * FROM {tableName}";
+            string query = $"SELECT ID FROM {tableName}";
             SqlCommand cmd = new(query, connection);
             SqlDataReader reader = cmd.ExecuteReader();
 
@@ -441,6 +443,63 @@ public static class DAL
 
         return inspectionsList;
     }
+
+    public static List<string> GetStaffUsernames()
+    {
+        List<string> usernameList = new();
+        using (SqlConnection connection = new(_connectionString))
+        {
+            connection.Open();
+
+            string query = $"SELECT Username FROM Staff";
+            SqlCommand cmd = new(query, connection);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                usernameList.Add((string)reader["Username"]);
+            }
+            connection.Close();
+            reader.Dispose();
+            cmd.Dispose();
+        }
+
+        return usernameList;
+    }
+
+    public static int GetNoCustomerRecords(string custID)
+    {
+        int noRecords = 0;
+        using (SqlConnection connection = new(_connectionString))
+        {
+            connection.Open();
+
+            string query = $"SELECT * FROM Job WHERE CustomerID = '{custID}'";
+            SqlCommand cmd = new(query, connection);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read()) noRecords++;
+
+            connection.Close();
+            reader.DisposeAsync();
+            cmd.Dispose();
+        }
+        using (SqlConnection connection = new(_connectionString))
+        {
+            connection.Open();
+
+            string query = $"SELECT * FROM Inspection WHERE CustomerID = '{custID}'";
+            SqlCommand cmd = new(query, connection);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read()) noRecords++;
+
+            connection.Close();
+            reader.DisposeAsync();
+            cmd.Dispose();
+        }
+        return noRecords;
+    }
     #endregion
 
     #region WriteNew
@@ -603,6 +662,29 @@ public static class DAL
             connection.Close();
         }
     }
+
+    public static void WriteNewStaff(Staff staff)
+    {
+        using (SqlConnection connection = new(_connectionString))
+        {
+            connection.Open();
+            SqlCommand InsertSpecialItemCommand = new();
+
+            InsertSpecialItemCommand.Connection = connection;
+            InsertSpecialItemCommand.CommandType = CommandType.StoredProcedure;
+            InsertSpecialItemCommand.CommandText = "AddStaff";
+
+            InsertSpecialItemCommand.Parameters.Add(new SqlParameter("@username", staff.Username));
+            InsertSpecialItemCommand.Parameters.Add(new SqlParameter("@password", staff.Password));
+            InsertSpecialItemCommand.Parameters.Add(new SqlParameter("@salt", staff.Salt));
+            InsertSpecialItemCommand.Parameters.Add(new SqlParameter("@forename", staff.Forename));
+            InsertSpecialItemCommand.Parameters.Add(new SqlParameter("@surname", staff.Surname));
+            InsertSpecialItemCommand.Parameters.Add(new SqlParameter("@profile", staff.Profile));
+            InsertSpecialItemCommand.ExecuteNonQuery();
+
+            connection.Close();
+        }
+    }
     #endregion
 
     #region Update
@@ -673,6 +755,7 @@ public static class DAL
             UpdateSpecialItemCommand.Parameters.Add(new SqlParameter("@name", item.Name));
             UpdateSpecialItemCommand.Parameters.Add(new SqlParameter("@noWorkers", item.NoWorkers));
             UpdateSpecialItemCommand.Parameters.Add(new SqlParameter("@price", Convert.ToDecimal(item.Price)));
+
             rowsAffected = UpdateSpecialItemCommand.ExecuteNonQuery();
 
             connection.Close();
@@ -719,6 +802,31 @@ public static class DAL
         WriteJobSpecialItems(job.ID, job.SpecialItems);
         return rowsAffected;
     }
+
+    public static void UpdateStaff(Staff staff)
+    {
+        using (SqlConnection connection = new(_connectionString))
+        {
+            connection.Open();
+            SqlCommand UpdateStaffCommand = new();
+
+            UpdateStaffCommand.Connection = connection;
+            UpdateStaffCommand.CommandType = CommandType.StoredProcedure;
+            UpdateStaffCommand.CommandText = "UpdateStaff";
+
+
+            UpdateStaffCommand.Parameters.Add(new SqlParameter("@username", staff.Username));
+            UpdateStaffCommand.Parameters.Add(new SqlParameter("@password", staff.Password));
+            UpdateStaffCommand.Parameters.Add(new SqlParameter("@salt", staff.Salt));
+            UpdateStaffCommand.Parameters.Add(new SqlParameter("@forename", staff.Forename));
+            UpdateStaffCommand.Parameters.Add(new SqlParameter("@surname", staff.Surname));
+            UpdateStaffCommand.Parameters.Add(new SqlParameter("@profile", staff.Profile));
+
+            UpdateStaffCommand.ExecuteNonQuery();
+
+            connection.Close();
+        }
+    }
     #endregion
 
     #region Delete
@@ -727,12 +835,14 @@ public static class DAL
         int rowsAffected;
         if (table == "Job") DeleteItems(id);
         else if (table == "SpecialItem") DeleteJobs(id);
+        else if (table == "Customer") DeleteCustomerRecords(id);
         using (SqlConnection connection = new(_connectionString))
         {
             connection.Open();
 
             string query = $"DELETE FROM {table} WHERE ID = '{id}'";
             if (table == "SpecialItem") query = $"DELETE FROM {table} WHERE Name = '{id}'";
+            if (table == "Staff") query = $"DELETE FROM {table} WHERE Username = '{id}'";
             SqlCommand cmd = new(query, connection);
             rowsAffected = cmd.ExecuteNonQuery();
 
@@ -769,6 +879,33 @@ public static class DAL
             string query = $"DELETE FROM JobSpecialItem WHERE SpecialItemName = '{specialItemName}'";
             SqlCommand cmd = new(query, connection);
             rowsAffected = cmd.ExecuteNonQuery();
+
+            connection.Close();
+            cmd.Dispose();
+        }
+        return rowsAffected;
+    }
+    public static int DeleteCustomerRecords(string custID)
+    {
+        int rowsAffected;
+        using (SqlConnection connection = new(_connectionString))
+        {
+            connection.Open();
+
+            string query = $"DELETE FROM Job WHERE CustomerID = '{custID}'";
+            SqlCommand cmd = new(query, connection);
+            rowsAffected = cmd.ExecuteNonQuery();
+
+            connection.Close();
+            cmd.Dispose();
+        }
+        using (SqlConnection connection = new(_connectionString))
+        {
+            connection.Open();
+
+            string query = $"DELETE FROM Inspection WHERE CustomerID = '{custID}'";
+            SqlCommand cmd = new(query, connection);
+            rowsAffected += cmd.ExecuteNonQuery();
 
             connection.Close();
             cmd.Dispose();

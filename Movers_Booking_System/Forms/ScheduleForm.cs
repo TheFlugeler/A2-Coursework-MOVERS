@@ -19,7 +19,6 @@ public partial class ScheduleForm : Form
         e.Graphics.DrawString(JobController.GetDateSummary(startOfWeek.AddDays(dayIndex))
                               + InspectionController.GetDateSummary(startOfWeek.AddDays(dayIndex)), font, brush, new Point(20, 180));
         
-        e.Graphics.DrawLine(new Pen(brush, 4), new Point(0, 880), new Point(826, 880));
         dayIndex++;
         if (dayIndex <= 6) e.HasMorePages = true;
         else e.HasMorePages = false;
@@ -32,6 +31,7 @@ public partial class ScheduleForm : Form
         e.Graphics.DrawString("MOVERS - Moval Company", new Font("Bahnschrift", 20), Brushes.Black, new Point(297, 30));
         e.Graphics.DrawString($"Day: {startOfWeek.AddDays(dayIndex).DayOfWeek} {startOfWeek.AddDays(dayIndex).ToLongDateString()}", font, Brushes.Black, new Point(300, 65));
         e.Graphics.DrawString($"{DateTime.Today.ToShortDateString()}", font, Brushes.Black, new Point(700, 35));
+        e.Graphics.DrawLine(new Pen(brush, 4), new Point(0, 160), new Point(826, 160));
         img.Dispose();
     }
 

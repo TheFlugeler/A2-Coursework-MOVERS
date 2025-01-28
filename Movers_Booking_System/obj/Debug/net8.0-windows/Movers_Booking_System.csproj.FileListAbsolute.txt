@@ -72,3 +72,6 @@ C:\Users\jcoul\Desktop\School stuff\SSD\A2\Coursework\Movers_Booking_System\Move
 C:\Users\jcoul\Desktop\School stuff\SSD\A2\Coursework\Movers_Booking_System\Movers_Booking_System\obj\Debug\net8.0-windows\Movers_Booking_System.Forms.DatabaseForm.resources
 C:\Users\jcoul\Desktop\School stuff\SSD\A2\Coursework\Movers_Booking_System\Movers_Booking_System\obj\Debug\net8.0-windows\Movers_Booking_System.Forms.PrintForm.resources
 C:\Users\jcoul\Desktop\School stuff\SSD\A2\Coursework\Movers_Booking_System\Movers_Booking_System\obj\Debug\net8.0-windows\Movers_Booking_System.Forms.ScheduleForm.resources
+C:\Users\jcoul\Desktop\School stuff\SSD\A2\Coursework\Movers_Booking_System\Movers_Booking_System\obj\Debug\net8.0-windows\Movers_Booking_System.Forms.ProfileForm.resources
+C:\Users\jcoul\Desktop\School stuff\SSD\A2\Coursework\Movers_Booking_System\Movers_Booking_System\obj\Debug\net8.0-windows\Movers_Booking_System.sourcelink.json
+C:\Users\jcoul\Desktop\School stuff\SSD\A2\Coursework\Movers_Booking_System\Movers_Booking_System\obj\Debug\net8.0-windows\Movers_Booking_System.Forms.MessagesForm.resources
