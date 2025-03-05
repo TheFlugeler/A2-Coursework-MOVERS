@@ -9,6 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="bin\Debug\net8.0-windows\Media\email-alert.png" />
+    <Content Include="bin\Debug\net8.0-windows\Media\email.png" />
     <Content Include="bin\Debug\net8.0-windows\Media\NotVisible.png" />
     <Content Include="bin\Debug\net8.0-windows\Media\PrintLogo.png" />
     <Content Include="bin\Debug\net8.0-windows\Media\Visible.png" />

@@ -34,8 +34,10 @@
             labelSchedule = new Label();
             panelLogo = new Panel();
             panelForm = new Panel();
+            buttonRight = new Button();
+            buttonLeft = new Button();
+            textBox1 = new TextBox();
             labelDate = new Label();
-            dateTimePicker = new DateTimePicker();
             labelPrintSchedule = new Label();
             customButtonSubmit = new CustControlLib.CustomButton();
             printPreviewDialog = new PrintPreviewDialog();
@@ -94,13 +96,54 @@
             // panelForm
             // 
             panelForm.BackColor = Color.FromArgb(30, 125, 187);
+            panelForm.Controls.Add(buttonRight);
+            panelForm.Controls.Add(buttonLeft);
+            panelForm.Controls.Add(textBox1);
             panelForm.Controls.Add(labelDate);
-            panelForm.Controls.Add(dateTimePicker);
             panelForm.Controls.Add(labelPrintSchedule);
             panelForm.Location = new Point(350, 240);
             panelForm.Name = "panelForm";
-            panelForm.Size = new Size(560, 179);
+            panelForm.Size = new Size(569, 179);
             panelForm.TabIndex = 6;
+            // 
+            // buttonRight
+            // 
+            buttonRight.BackgroundImage = Media.SystemImages.right_arrow;
+            buttonRight.BackgroundImageLayout = ImageLayout.Zoom;
+            buttonRight.FlatAppearance.BorderSize = 0;
+            buttonRight.FlatStyle = FlatStyle.Flat;
+            buttonRight.Font = new Font("Bahnschrift", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            buttonRight.ForeColor = Color.White;
+            buttonRight.Location = new Point(508, 90);
+            buttonRight.Name = "buttonRight";
+            buttonRight.Size = new Size(30, 30);
+            buttonRight.TabIndex = 21;
+            buttonRight.UseVisualStyleBackColor = true;
+            buttonRight.Click += buttonRight_Click;
+            // 
+            // buttonLeft
+            // 
+            buttonLeft.BackgroundImage = Media.SystemImages.left_arrow;
+            buttonLeft.BackgroundImageLayout = ImageLayout.Zoom;
+            buttonLeft.FlatAppearance.BorderSize = 0;
+            buttonLeft.FlatStyle = FlatStyle.Flat;
+            buttonLeft.Font = new Font("Bahnschrift", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            buttonLeft.ForeColor = Color.White;
+            buttonLeft.Location = new Point(222, 91);
+            buttonLeft.Name = "buttonLeft";
+            buttonLeft.Size = new Size(30, 30);
+            buttonLeft.TabIndex = 20;
+            buttonLeft.UseVisualStyleBackColor = true;
+            buttonLeft.Click += buttonLeft_Click;
+            // 
+            // textBox1
+            // 
+            textBox1.Font = new Font("Bahnschrift", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox1.Location = new Point(258, 91);
+            textBox1.Name = "textBox1";
+            textBox1.ReadOnly = true;
+            textBox1.Size = new Size(244, 32);
+            textBox1.TabIndex = 6;
             // 
             // labelDate
             // 
@@ -112,15 +155,6 @@
             labelDate.Size = new Size(182, 29);
             labelDate.TabIndex = 5;
             labelDate.Text = "Week Beginning";
-            // 
-            // dateTimePicker
-            // 
-            dateTimePicker.CalendarFont = new Font("Bahnschrift", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dateTimePicker.Font = new Font("Bahnschrift", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dateTimePicker.Location = new Point(241, 91);
-            dateTimePicker.Name = "dateTimePicker";
-            dateTimePicker.Size = new Size(276, 32);
-            dateTimePicker.TabIndex = 4;
             // 
             // labelPrintSchedule
             // 
@@ -143,7 +177,7 @@
             customButtonSubmit.FlatStyle = FlatStyle.Flat;
             customButtonSubmit.Font = new Font("Bahnschrift SemiBold", 12F, FontStyle.Bold);
             customButtonSubmit.ForeColor = Color.White;
-            customButtonSubmit.Location = new Point(791, 425);
+            customButtonSubmit.Location = new Point(800, 425);
             customButtonSubmit.Name = "customButtonSubmit";
             customButtonSubmit.Size = new Size(119, 43);
             customButtonSubmit.TabIndex = 7;
@@ -191,10 +225,12 @@
         private Panel panelLogo;
         private Panel panelForm;
         private Label labelPrintSchedule;
-        private DateTimePicker dateTimePicker;
         private Label labelDate;
         private CustControlLib.CustomButton customButtonSubmit;
         private PrintPreviewDialog printPreviewDialog;
         private System.Drawing.Printing.PrintDocument printDocument;
+        private TextBox textBox1;
+        private Button buttonLeft;
+        private Button buttonRight;
     }
 }

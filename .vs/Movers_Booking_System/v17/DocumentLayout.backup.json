@@ -3,16 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\jcoul\\Desktop\\School stuff\\SSD\\A2\\Coursework\\Movers_Booking_System\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7A60E1BC-9564-414E-8810-C41E79A3EBB5}|Movers_Booking_System\\Movers_Booking_System.csproj|c:\\users\\jcoul\\desktop\\school stuff\\ssd\\a2\\coursework\\movers_booking_system\\movers_booking_system\\forms\\profileform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7A60E1BC-9564-414E-8810-C41E79A3EBB5}|Movers_Booking_System\\Movers_Booking_System.csproj|solutionrelative:movers_booking_system\\forms\\profileform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7A60E1BC-9564-414E-8810-C41E79A3EBB5}|Movers_Booking_System\\Movers_Booking_System.csproj|c:\\users\\jcoul\\desktop\\school stuff\\ssd\\a2\\coursework\\movers_booking_system\\movers_booking_system\\forms\\inspectionform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7A60E1BC-9564-414E-8810-C41E79A3EBB5}|Movers_Booking_System\\Movers_Booking_System.csproj|solutionrelative:movers_booking_system\\forms\\inspectionform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7A60E1BC-9564-414E-8810-C41E79A3EBB5}|Movers_Booking_System\\Movers_Booking_System.csproj|c:\\users\\jcoul\\desktop\\school stuff\\ssd\\a2\\coursework\\movers_booking_system\\movers_booking_system\\forms\\messagesform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7A60E1BC-9564-414E-8810-C41E79A3EBB5}|Movers_Booking_System\\Movers_Booking_System.csproj|solutionrelative:movers_booking_system\\forms\\messagesform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7A60E1BC-9564-414E-8810-C41E79A3EBB5}|Movers_Booking_System\\Movers_Booking_System.csproj|c:\\users\\jcoul\\desktop\\school stuff\\ssd\\a2\\coursework\\movers_booking_system\\movers_booking_system\\forms\\masterform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7A60E1BC-9564-414E-8810-C41E79A3EBB5}|Movers_Booking_System\\Movers_Booking_System.csproj|solutionrelative:movers_booking_system\\forms\\masterform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7A60E1BC-9564-414E-8810-C41E79A3EBB5}|Movers_Booking_System\\Movers_Booking_System.csproj|c:\\users\\jcoul\\desktop\\school stuff\\ssd\\a2\\coursework\\movers_booking_system\\movers_booking_system\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7A60E1BC-9564-414E-8810-C41E79A3EBB5}|Movers_Booking_System\\Movers_Booking_System.csproj|solutionrelative:movers_booking_system\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -43,41 +39,26 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ProfileForm.cs",
-              "DocumentMoniker": "C:\\Users\\jcoul\\Desktop\\School stuff\\SSD\\A2\\Coursework\\Movers_Booking_System\\Movers_Booking_System\\Forms\\ProfileForm.cs",
-              "RelativeDocumentMoniker": "Movers_Booking_System\\Forms\\ProfileForm.cs",
-              "ToolTip": "C:\\Users\\jcoul\\Desktop\\School stuff\\SSD\\A2\\Coursework\\Movers_Booking_System\\Movers_Booking_System\\Forms\\ProfileForm.cs",
-              "RelativeToolTip": "Movers_Booking_System\\Forms\\ProfileForm.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAMwBkAAAAaAAAAAAAAAA==",
+              "Title": "InspectionForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\jcoul\\Desktop\\School stuff\\SSD\\A2\\Coursework\\Movers_Booking_System\\Movers_Booking_System\\Forms\\InspectionForm.cs",
+              "RelativeDocumentMoniker": "Movers_Booking_System\\Forms\\InspectionForm.cs",
+              "ToolTip": "C:\\Users\\jcoul\\Desktop\\School stuff\\SSD\\A2\\Coursework\\Movers_Booking_System\\Movers_Booking_System\\Forms\\InspectionForm.cs [Design]",
+              "RelativeToolTip": "Movers_Booking_System\\Forms\\InspectionForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-28T14:31:47.632Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-05T09:26:03.361Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "MessagesForm.cs",
-              "DocumentMoniker": "C:\\Users\\jcoul\\Desktop\\School stuff\\SSD\\A2\\Coursework\\Movers_Booking_System\\Movers_Booking_System\\Forms\\MessagesForm.cs",
-              "RelativeDocumentMoniker": "Movers_Booking_System\\Forms\\MessagesForm.cs",
-              "ToolTip": "C:\\Users\\jcoul\\Desktop\\School stuff\\SSD\\A2\\Coursework\\Movers_Booking_System\\Movers_Booking_System\\Forms\\MessagesForm.cs",
-              "RelativeToolTip": "Movers_Booking_System\\Forms\\MessagesForm.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAMwDEAAAAbAAAAAAAAAA==",
+              "Title": "MainForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\jcoul\\Desktop\\School stuff\\SSD\\A2\\Coursework\\Movers_Booking_System\\Movers_Booking_System\\Forms\\MainForm.cs",
+              "RelativeDocumentMoniker": "Movers_Booking_System\\Forms\\MainForm.cs",
+              "ToolTip": "C:\\Users\\jcoul\\Desktop\\School stuff\\SSD\\A2\\Coursework\\Movers_Booking_System\\Movers_Booking_System\\Forms\\MainForm.cs [Design]",
+              "RelativeToolTip": "Movers_Booking_System\\Forms\\MainForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-28T14:31:43.004Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MasterForm.cs",
-              "DocumentMoniker": "C:\\Users\\jcoul\\Desktop\\School stuff\\SSD\\A2\\Coursework\\Movers_Booking_System\\Movers_Booking_System\\Forms\\MasterForm.cs",
-              "RelativeDocumentMoniker": "Movers_Booking_System\\Forms\\MasterForm.cs",
-              "ToolTip": "C:\\Users\\jcoul\\Desktop\\School stuff\\SSD\\A2\\Coursework\\Movers_Booking_System\\Movers_Booking_System\\Forms\\MasterForm.cs",
-              "RelativeToolTip": "Movers_Booking_System\\Forms\\MasterForm.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-28T14:24:56.868Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-05T09:22:47.423Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }

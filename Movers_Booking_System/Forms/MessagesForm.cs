@@ -17,14 +17,11 @@ public partial class MessagesForm : Form
         foreach (Job j in jobs)
         {
             if (j.Confirmed && j.JobDate < DateTime.Today) pastJobs.Add(j);
-            if (!j.Confirmed && j.EstimateDate < DateTime.Today.AddDays(4)) outdatedEstimates.Add(j);
+            if (!j.Confirmed && j.EstimateDate < DateTime.Today.AddDays(-4)) outdatedEstimates.Add(j);
         }
         labelEstimates.Text += outdatedEstimates.Count.ToString();
         labelJobs.Text += pastJobs.Count.ToString();
     }
-
-    private void buttonBack_Click(object sender, EventArgs e) => DisplayController.DisplayForm(new MainForm());
-
     private void buttonEstimate_Click(object sender, EventArgs e)
     {
         panelList.Visible = true;
@@ -33,7 +30,6 @@ public partial class MessagesForm : Form
         labelSelectedMessage.Text = "Delete all outdated estimates?";
         dataGridView.DataSource = outdatedEstimates;
     }
-
     private void buttonJob_Click(object sender, EventArgs e)
     {
         panelList.Visible = true;
@@ -47,9 +43,9 @@ public partial class MessagesForm : Form
     {
         DialogResult yn = MessageBox.Show("Are you sure you want to delete these items?", "Delete", MessageBoxButtons.YesNo);
         if (yn == DialogResult.No) return;
-        List<Job> source = dataGridView.DataSource as List<Job>;
-        foreach (Job j in source) DAL.DeleteRecord(j.ID, "Job");
+        JobController.DeleteJobList(dataGridView.DataSource as List<Job>);
         MessageBox.Show("Outdated records have been deleted", "Success");
         DisplayController.DisplayForm(new MainForm());
     }
+    private void buttonBack_Click(object sender, EventArgs e) => DisplayController.DisplayForm(new MainForm());
 }

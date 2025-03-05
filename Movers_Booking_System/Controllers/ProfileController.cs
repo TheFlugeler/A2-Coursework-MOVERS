@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Movers_Booking_System.Controllers;
+﻿namespace Movers_Booking_System.Controllers;
 
 public static class ProfileController
 {
@@ -23,5 +17,6 @@ public static class ProfileController
                                 "Profiles/Male-Profile-3.png"];
     public static Image GetProfileImage(int i) => profilePictures[i];
     public static string GetFilePath(int i) => filePaths[i];
+
 
 }

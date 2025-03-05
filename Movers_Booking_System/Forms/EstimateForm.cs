@@ -1,6 +1,5 @@
 ﻿using Movers_Booking_System.Controllers;
 using Movers_Booking_System.Models;
-using Movers_Booking_System.Tools;
 
 namespace Movers_Booking_System.Forms;
 
@@ -8,7 +7,9 @@ public partial class EstimateForm : Form
 {
     private List<SpecialItem> specialItems = new List<SpecialItem>();
     private bool editMode;
-    private Job selectedJob;
+    private bool confirmed;
+    private string jobID;
+    private int[] originalVans;
     public EstimateForm()
     {
         InitializeComponent();
@@ -20,16 +21,25 @@ public partial class EstimateForm : Form
         numericUpDownRooms.Maximum = 4;
         labelAmountPaid.Visible = false;
         textBoxAmountPaid.Visible = false;
+        textBoxAmountPaid.Text = "0";
 
+        originalVans = [0, 0, 0];
+        jobID = "";
+        confirmed = false;
         editMode = false;
     }
     public EstimateForm(Job job)
     {
         InitializeComponent();
-        selectedJob = job;
 
-        if (job.Confirmed) labelCreateEstimate.Text = "Update Estimate";
-        else customButtonSubmit.Text = "Update";
+        confirmed = job.Confirmed;
+        jobID = job.ID;
+        originalVans = [job.NoSmallVans, job.NoMediumVans, job.NoLargeVans];
+
+        if (job.Confirmed) labelCreateEstimate.Text = "Update Job";
+        else labelCreateEstimate.Text = "Update Estimate";
+        customButtonSubmit.Text = "Update";
+
         comboBoxCustomer.DataSource = CustomerController.GetCustomerNames();
         comboBoxSpecialItem.DataSource = SpecialItemController.GetSpecialItemNames();
         numericUpDownRooms.Minimum = 1;
@@ -83,50 +93,36 @@ public partial class EstimateForm : Form
     }
     private void customButtonSubmit_Click(object sender, EventArgs e)
     {
-        bool isHoliday = false;
-        int[] vans = EstimateController.CalculateTotalVans((int)numericUpDownRooms.Value, specialItems);
-        int[] originalVans = [0,0,0]; 
-        if(editMode) originalVans = [selectedJob.NoSmallVans,selectedJob.NoMediumVans,selectedJob.NoLargeVans];
-        int noWorkers = EstimateController.CalculateTotalWorkers((int)numericUpDownRooms.Value, specialItems);
-        if (!EstimateController.VerifyEstimateDate(dateTimePickerJobDate.Value.Date, noWorkers, vans, originalVans))
+        if (!double.TryParse(textBoxAmountPaid.Text, out double amountPaid))
         {
-            string msg = EstimateController.ReadErrorMessage();
-            if (msg.Contains("200"))
-            {
-                DialogResult dr = MessageBox.Show(msg, "Error", MessageBoxButtons.YesNo);
-                if (dr == DialogResult.No) return;
-                else isHoliday = true;
-            }
-            else
-            {
-                MessageBox.Show(msg, "Error");
-                return;
-            }
+            MessageBox.Show("Price is in an invalid format");
+            return;
         }
-
-        double price = EstimateController.CalculateEstimateCost((int)numericUpDownRooms.Value, checkBoxApartment.Checked, (int)numericUpDownBoxes.Value, checkBoxSelfPacked.Checked, checkBoxFurnitureAssembly.Checked, specialItems, isHoliday);
-        string custID = CustomerController.GetCustomerID(comboBoxCustomer.SelectedIndex);
-
-        Job newJob = new Job("", custID, DateTime.Today, false, dateTimePickerJobDate.Value.Date, richTextBoxOldAddress.Text,
-            richTextBoxNewAddress.Text, (int)numericUpDownRooms.Value, checkBoxApartment.Checked, (int)numericUpDownBoxes.Value, checkBoxSelfPacked.Checked,
-            checkBoxFurnitureAssembly.Checked, richTextBoxExtraRequirements.Text, price, 0, noWorkers, vans[0], vans[1], vans[2], specialItems);
-
-        if (editMode)
+        Job job = new Job(jobID, CustomerController.GetCustomerID(comboBoxCustomer.SelectedIndex), DateTime.Today, confirmed,
+            dateTimePickerJobDate.Value.Date, richTextBoxOldAddress.Text, richTextBoxNewAddress.Text, (int)numericUpDownRooms.Value, checkBoxApartment.Checked,
+            (int)numericUpDownBoxes.Value, checkBoxSelfPacked.Checked, checkBoxFurnitureAssembly.Checked, richTextBoxExtraRequirements.Text, 0, amountPaid,
+            0, 0, 0, 0, specialItems);
+        if (JobController.WriteJob(job, editMode, originalVans))
         {
-            newJob.Confirmed = selectedJob.Confirmed;
-            newJob.ID = selectedJob.ID;
-            if (!double.TryParse(textBoxAmountPaid.Text, out double _))
-            {
-                MessageBox.Show("Amount paid is in an invalid format", "Error");
-                return;
-            }
-            newJob.AmountPaid = Convert.ToDouble(textBoxAmountPaid.Text);
-            DAL.UpdateJob(newJob);
+            MessageBox.Show("Job Written Successfully", "Success");
+            DisplayController.DisplayForm(new MainForm());
         }
-        else DAL.WriteNewJob(newJob);
-
-        MessageBox.Show("Job updated successfully", "Success");
-        DisplayController.DisplayForm(new MainForm());
+        else
+        {
+            string msg = JobController.ReadErrorMessage();
+            if (msg.Contains("200")) return;
+            MessageBox.Show(msg, "Error");
+            return;
+        }
     }
     private void buttonBack_Click(object sender, EventArgs e) => DisplayController.DisplayForm(new MainForm());
+
+    private void numericUpDownBoxes_ValueChanged(object sender, EventArgs e)
+    {
+        if (numericUpDownBoxes.Value % 10 != 0)
+        {
+            int value = Convert.ToInt32(Math.Ceiling((double)numericUpDownBoxes.Value / 10));
+            numericUpDownBoxes.Value = value * 10;
+        }
+    }
 }

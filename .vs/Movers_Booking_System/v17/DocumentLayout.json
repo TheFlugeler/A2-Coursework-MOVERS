@@ -1,7 +1,16 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\jcoul\\Desktop\\School stuff\\SSD\\A2\\Coursework\\Movers_Booking_System\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7A60E1BC-9564-414E-8810-C41E79A3EBB5}|Movers_Booking_System\\Movers_Booking_System.csproj|c:\\users\\jcoul\\desktop\\school stuff\\ssd\\a2\\coursework\\movers_booking_system\\movers_booking_system\\forms\\inspectionform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7A60E1BC-9564-414E-8810-C41E79A3EBB5}|Movers_Booking_System\\Movers_Booking_System.csproj|solutionrelative:movers_booking_system\\forms\\inspectionform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7A60E1BC-9564-414E-8810-C41E79A3EBB5}|Movers_Booking_System\\Movers_Booking_System.csproj|c:\\users\\jcoul\\desktop\\school stuff\\ssd\\a2\\coursework\\movers_booking_system\\movers_booking_system\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7A60E1BC-9564-414E-8810-C41E79A3EBB5}|Movers_Booking_System\\Movers_Booking_System.csproj|solutionrelative:movers_booking_system\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -25,11 +34,31 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "InspectionForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\jcoul\\Desktop\\School stuff\\SSD\\A2\\Coursework\\Movers_Booking_System\\Movers_Booking_System\\Forms\\InspectionForm.cs",
+              "RelativeDocumentMoniker": "Movers_Booking_System\\Forms\\InspectionForm.cs",
+              "ToolTip": "C:\\Users\\jcoul\\Desktop\\School stuff\\SSD\\A2\\Coursework\\Movers_Booking_System\\Movers_Booking_System\\Forms\\InspectionForm.cs [Design]",
+              "RelativeToolTip": "Movers_Booking_System\\Forms\\InspectionForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-05T09:26:03.361Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\jcoul\\Desktop\\School stuff\\SSD\\A2\\Coursework\\Movers_Booking_System\\Movers_Booking_System\\Forms\\MainForm.cs",
+              "RelativeDocumentMoniker": "Movers_Booking_System\\Forms\\MainForm.cs",
+              "ToolTip": "C:\\Users\\jcoul\\Desktop\\School stuff\\SSD\\A2\\Coursework\\Movers_Booking_System\\Movers_Booking_System\\Forms\\MainForm.cs [Design]",
+              "RelativeToolTip": "Movers_Booking_System\\Forms\\MainForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-05T09:22:47.423Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }

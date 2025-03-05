@@ -11,38 +11,27 @@ public partial class ScheduleForm : Form
     public ScheduleForm()
     {
         InitializeComponent();
+        startOfWeek = DateTime.Today;
+        while (startOfWeek.DayOfWeek != DayOfWeek.Sunday)
+        {
+            startOfWeek = startOfWeek.AddDays(-1);
+        }
+        textBox1.Text = startOfWeek.ToShortDateString();
     }
 
     private void printDocument_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
     {
-        DrawHeader(sender, e);
+        PrintController.DrawScheduleHeader(sender, e, startOfWeek, dayIndex);
         e.Graphics.DrawString(JobController.GetDateSummary(startOfWeek.AddDays(dayIndex))
                               + InspectionController.GetDateSummary(startOfWeek.AddDays(dayIndex)), font, brush, new Point(20, 180));
-        
+
         dayIndex++;
         if (dayIndex <= 6) e.HasMorePages = true;
         else e.HasMorePages = false;
     }
 
-    private void DrawHeader(object sender, System.Drawing.Printing.PrintPageEventArgs e)
-    {
-        Image img = Image.FromFile("Media/PrintLogo.png");
-        e.Graphics.DrawImage(img, new Point(-30, -100));
-        e.Graphics.DrawString("MOVERS - Moval Company", new Font("Bahnschrift", 20), Brushes.Black, new Point(297, 30));
-        e.Graphics.DrawString($"Day: {startOfWeek.AddDays(dayIndex).DayOfWeek} {startOfWeek.AddDays(dayIndex).ToLongDateString()}", font, Brushes.Black, new Point(300, 65));
-        e.Graphics.DrawString($"{DateTime.Today.ToShortDateString()}", font, Brushes.Black, new Point(700, 35));
-        e.Graphics.DrawLine(new Pen(brush, 4), new Point(0, 160), new Point(826, 160));
-        img.Dispose();
-    }
-
     private void customButtonSubmit_Click(object sender, EventArgs e)
     {
-        if (dateTimePicker.Value.DayOfWeek != DayOfWeek.Sunday)
-        {
-            MessageBox.Show("Day selected is not a Sunday", "Error");
-            return;
-        }
-        startOfWeek = dateTimePicker.Value;
         dayIndex = 0;
         printPreviewDialog.Document = printDocument;
         printDocument.DefaultPageSettings.PaperSize = new("PaperA4", 826, 1169);
@@ -50,4 +39,16 @@ public partial class ScheduleForm : Form
     }
 
     private void buttonBack_Click(object sender, EventArgs e) => DisplayController.DisplayForm(new MainForm());
+
+    private void buttonRight_Click(object sender, EventArgs e)
+    {
+        startOfWeek = startOfWeek.AddDays(7);
+        textBox1.Text = startOfWeek.ToShortDateString();
+    }
+
+    private void buttonLeft_Click(object sender, EventArgs e)
+    {
+        startOfWeek = startOfWeek.AddDays(-7);
+        textBox1.Text = startOfWeek.ToShortDateString();
+    }
 }

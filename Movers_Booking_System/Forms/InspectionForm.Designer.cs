@@ -110,28 +110,27 @@
             panelForm.Controls.Add(comboBoxCustomer);
             panelForm.Controls.Add(labelCustomer);
             panelForm.Controls.Add(labelBookInspection);
-            panelForm.Location = new Point(320, 170);
+            panelForm.Location = new Point(352, 200);
             panelForm.Name = "panelForm";
-            panelForm.Size = new Size(640, 420);
+            panelForm.Size = new Size(575, 350);
             panelForm.TabIndex = 4;
             // 
             // checkBoxPaid
             // 
             checkBoxPaid.AutoSize = true;
             checkBoxPaid.Font = new Font("Bahnschrift", 12F);
-            checkBoxPaid.Location = new Point(276, 305);
+            checkBoxPaid.Location = new Point(224, 294);
             checkBoxPaid.Name = "checkBoxPaid";
             checkBoxPaid.Size = new Size(18, 17);
             checkBoxPaid.TabIndex = 5;
             checkBoxPaid.UseVisualStyleBackColor = true;
-            checkBoxPaid.CheckedChanged += checkBoxPaid_CheckedChanged;
             // 
             // labelPaid
             // 
             labelPaid.AutoSize = true;
             labelPaid.Font = new Font("Bahnschrift", 14F);
             labelPaid.ForeColor = Color.White;
-            labelPaid.Location = new Point(193, 296);
+            labelPaid.Location = new Point(141, 285);
             labelPaid.Name = "labelPaid";
             labelPaid.Size = new Size(59, 29);
             labelPaid.TabIndex = 12;
@@ -140,7 +139,7 @@
             // dateTimePickerDate
             // 
             dateTimePickerDate.Font = new Font("Bahnschrift", 12F);
-            dateTimePickerDate.Location = new Point(276, 251);
+            dateTimePickerDate.Location = new Point(224, 240);
             dateTimePickerDate.Name = "dateTimePickerDate";
             dateTimePickerDate.Size = new Size(297, 32);
             dateTimePickerDate.TabIndex = 4;
@@ -150,7 +149,7 @@
             labelDate.AutoSize = true;
             labelDate.Font = new Font("Bahnschrift", 14F);
             labelDate.ForeColor = Color.White;
-            labelDate.Location = new Point(189, 251);
+            labelDate.Location = new Point(137, 240);
             labelDate.Name = "labelDate";
             labelDate.Size = new Size(63, 29);
             labelDate.TabIndex = 10;
@@ -159,7 +158,7 @@
             // textBoxNewAddress
             // 
             textBoxNewAddress.Font = new Font("Bahnschrift", 12F);
-            textBoxNewAddress.Location = new Point(276, 201);
+            textBoxNewAddress.Location = new Point(224, 190);
             textBoxNewAddress.Name = "textBoxNewAddress";
             textBoxNewAddress.Size = new Size(297, 32);
             textBoxNewAddress.TabIndex = 3;
@@ -169,7 +168,7 @@
             labelNewAddress.AutoSize = true;
             labelNewAddress.Font = new Font("Bahnschrift", 14F);
             labelNewAddress.ForeColor = Color.White;
-            labelNewAddress.Location = new Point(95, 201);
+            labelNewAddress.Location = new Point(43, 190);
             labelNewAddress.Name = "labelNewAddress";
             labelNewAddress.Size = new Size(157, 29);
             labelNewAddress.TabIndex = 8;
@@ -178,7 +177,7 @@
             // textBoxOldAddress
             // 
             textBoxOldAddress.Font = new Font("Bahnschrift", 12F);
-            textBoxOldAddress.Location = new Point(276, 151);
+            textBoxOldAddress.Location = new Point(224, 140);
             textBoxOldAddress.Name = "textBoxOldAddress";
             textBoxOldAddress.Size = new Size(297, 32);
             textBoxOldAddress.TabIndex = 2;
@@ -188,7 +187,7 @@
             labelOldAddress.AutoSize = true;
             labelOldAddress.Font = new Font("Bahnschrift", 14F);
             labelOldAddress.ForeColor = Color.White;
-            labelOldAddress.Location = new Point(109, 151);
+            labelOldAddress.Location = new Point(57, 140);
             labelOldAddress.Name = "labelOldAddress";
             labelOldAddress.Size = new Size(143, 29);
             labelOldAddress.TabIndex = 6;
@@ -199,7 +198,7 @@
             comboBoxCustomer.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxCustomer.Font = new Font("Bahnschrift", 12F);
             comboBoxCustomer.FormattingEnabled = true;
-            comboBoxCustomer.Location = new Point(276, 101);
+            comboBoxCustomer.Location = new Point(224, 90);
             comboBoxCustomer.Name = "comboBoxCustomer";
             comboBoxCustomer.Size = new Size(297, 32);
             comboBoxCustomer.TabIndex = 1;
@@ -209,7 +208,7 @@
             labelCustomer.AutoSize = true;
             labelCustomer.Font = new Font("Bahnschrift", 14F);
             labelCustomer.ForeColor = Color.White;
-            labelCustomer.Location = new Point(134, 101);
+            labelCustomer.Location = new Point(82, 90);
             labelCustomer.Name = "labelCustomer";
             labelCustomer.Size = new Size(118, 29);
             labelCustomer.TabIndex = 4;
@@ -220,7 +219,7 @@
             labelBookInspection.AutoSize = true;
             labelBookInspection.Font = new Font("Bahnschrift", 20F, FontStyle.Bold);
             labelBookInspection.ForeColor = Color.White;
-            labelBookInspection.Location = new Point(30, 30);
+            labelBookInspection.Location = new Point(17, 21);
             labelBookInspection.Name = "labelBookInspection";
             labelBookInspection.Size = new Size(308, 41);
             labelBookInspection.TabIndex = 3;
@@ -236,9 +235,9 @@
             customButtonSubmit.FlatStyle = FlatStyle.Flat;
             customButtonSubmit.Font = new Font("Bahnschrift SemiBold", 12F, FontStyle.Bold);
             customButtonSubmit.ForeColor = Color.White;
-            customButtonSubmit.Location = new Point(840, 596);
+            customButtonSubmit.Location = new Point(822, 556);
             customButtonSubmit.Name = "customButtonSubmit";
-            customButtonSubmit.Size = new Size(120, 55);
+            customButtonSubmit.Size = new Size(105, 49);
             customButtonSubmit.TabIndex = 6;
             customButtonSubmit.Text = "Submit";
             customButtonSubmit.UseVisualStyleBackColor = false;

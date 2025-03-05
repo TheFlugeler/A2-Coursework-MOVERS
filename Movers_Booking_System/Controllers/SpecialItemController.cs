@@ -20,10 +20,16 @@ public class SpecialItemController
         }
         List<string> names = GetSpecialItemNames();
         foreach (string n in names) if (n == name && name != originalName)
-            {
-                errorMessage = "Name is already registered";
-                return false;
-            }
+        {
+            errorMessage = "Name is already registered";
+            return false;
+        }
+        if (!ValidationTool.ContainsOnlyLettersAndWhitespace(name))
+        {
+            errorMessage = "Name is invalid";
+            return false;
+        }
+
         return true;
     }
     public static SpecialItem GetSpecialItem(int i)

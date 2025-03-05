@@ -184,9 +184,10 @@
             // 
             // textBoxAmountPaid
             // 
+            textBoxAmountPaid.Font = new Font("Bahnschrift", 9F);
             textBoxAmountPaid.Location = new Point(730, 369);
             textBoxAmountPaid.Name = "textBoxAmountPaid";
-            textBoxAmountPaid.Size = new Size(156, 27);
+            textBoxAmountPaid.Size = new Size(156, 26);
             textBoxAmountPaid.TabIndex = 32;
             // 
             // customButtonRemoveSpecialItem
@@ -414,6 +415,7 @@
             numericUpDownBoxes.Name = "numericUpDownBoxes";
             numericUpDownBoxes.Size = new Size(65, 26);
             numericUpDownBoxes.TabIndex = 11;
+            numericUpDownBoxes.ValueChanged += numericUpDownBoxes_ValueChanged;
             // 
             // numericUpDownRooms
             // 

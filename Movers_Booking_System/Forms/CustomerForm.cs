@@ -16,29 +16,21 @@ public partial class CustomerForm : Form
     public CustomerForm(Customer cust)
     {
         InitializeComponent();
-        SetEditView();
         custID = cust.ID;
+        editMode = true;
+        labelCreateCustomer.Text = "Edit Customer";
+        customButtonSubmit.Text = "Update";
         SetInputs(cust);
     }
     private void customButtonSubmit_Click(object sender, EventArgs e)
     {
-        Customer newCust = new Customer("", textBoxForename.Text, textBoxSurname.Text, textBoxTelNo.Text, textBoxEmail.Text);
-        if (editMode) newCust.ID = custID;
-        if (!CustomerController.WriteCustomer(newCust, editMode))
-        {
-            MessageBox.Show(CustomerController.ReadErrorMessage(), "Error");
-        }
+        Customer newCust = new Customer(custID, textBoxForename.Text, textBoxSurname.Text, textBoxTelNo.Text, textBoxEmail.Text);
+        if (!CustomerController.WriteCustomer(newCust, editMode)) MessageBox.Show(CustomerController.ReadErrorMessage(), "Error");
         else
         {
             MessageBox.Show("Customer Updated Successfully", "Update");
-            ResetInputs();
             DisplayController.DisplayForm(new MainForm());
         }
-    }
-    private void SetEditView()
-    {
-        labelCreateCustomer.Text = "Edit Customer";
-        customButtonSubmit.Text = "Update";
     }
     private void SetInputs(Customer cust)
     {
@@ -46,14 +38,6 @@ public partial class CustomerForm : Form
         textBoxSurname.Text = cust.Surname;
         textBoxTelNo.Text = cust.TelNo;
         textBoxEmail.Text = cust.Email;
-        editMode = true;
-    }
-    private void ResetInputs()
-    {
-        textBoxForename.Text = string.Empty;
-        textBoxSurname.Text = string.Empty;
-        textBoxTelNo.Text = string.Empty;
-        textBoxEmail.Text = string.Empty;
     }
     private void buttonBack_Click(object sender, EventArgs e) => DisplayController.DisplayForm(new MainForm());
 }

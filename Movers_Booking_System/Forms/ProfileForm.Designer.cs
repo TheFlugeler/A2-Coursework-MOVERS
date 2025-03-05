@@ -48,6 +48,7 @@
             labelEditProfile = new Label();
             customButtonSubmit = new CustControlLib.CustomButton();
             linkLabelNewStaff = new LinkLabel();
+            customButtonDatabase = new CustControlLib.CustomButton();
             panelTopBar.SuspendLayout();
             panelForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxProfile).BeginInit();
@@ -116,7 +117,7 @@
             panelForm.Controls.Add(labelSurname);
             panelForm.Controls.Add(labelForename);
             panelForm.Controls.Add(labelEditProfile);
-            panelForm.Location = new Point(351, 192);
+            panelForm.Location = new Point(350, 190);
             panelForm.Name = "panelForm";
             panelForm.Size = new Size(560, 445);
             panelForm.TabIndex = 6;
@@ -124,11 +125,11 @@
             // checkBox1
             // 
             checkBox1.AutoSize = true;
-            checkBox1.Font = new Font("Bahnschrift", 14F);
+            checkBox1.Font = new Font("Bahnschrift", 12F);
             checkBox1.ForeColor = Color.White;
             checkBox1.Location = new Point(200, 292);
             checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(238, 33);
+            checkBox1.Size = new Size(201, 28);
             checkBox1.TabIndex = 21;
             checkBox1.Text = "Set New Password";
             checkBox1.UseVisualStyleBackColor = true;
@@ -294,12 +295,31 @@
             linkLabelNewStaff.VisitedLinkColor = Color.White;
             linkLabelNewStaff.LinkClicked += linkLabelNewStaff_LinkClicked;
             // 
+            // customButtonDatabase
+            // 
+            customButtonDatabase.BackColor = Color.FromArgb(30, 125, 187);
+            customButtonDatabase.BorderColor = Color.Black;
+            customButtonDatabase.BorderRadius = 40;
+            customButtonDatabase.BorderWidth = 0;
+            customButtonDatabase.FlatAppearance.BorderSize = 0;
+            customButtonDatabase.FlatStyle = FlatStyle.Flat;
+            customButtonDatabase.Font = new Font("Bahnschrift SemiBold", 12F, FontStyle.Bold);
+            customButtonDatabase.ForeColor = Color.White;
+            customButtonDatabase.Location = new Point(350, 643);
+            customButtonDatabase.Name = "customButtonDatabase";
+            customButtonDatabase.Size = new Size(119, 49);
+            customButtonDatabase.TabIndex = 9;
+            customButtonDatabase.Text = "Database";
+            customButtonDatabase.UseVisualStyleBackColor = false;
+            customButtonDatabase.Click += customButtonDatabase_Click;
+            // 
             // ProfileForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(12, 68, 102);
             ClientSize = new Size(1262, 744);
+            Controls.Add(customButtonDatabase);
             Controls.Add(linkLabelNewStaff);
             Controls.Add(customButtonSubmit);
             Controls.Add(panelForm);
@@ -337,5 +357,6 @@
         private Label labelPassword;
         private TextBox textBoxPassword;
         private LinkLabel linkLabelNewStaff;
+        private CustControlLib.CustomButton customButtonDatabase;
     }
 }

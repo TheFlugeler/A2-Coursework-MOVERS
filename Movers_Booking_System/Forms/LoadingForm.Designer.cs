@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoadingForm));
             pictureBoxAnimation = new PictureBox();
             customPanelBar = new CustControlLib.CustomPanel();
             customPanelBackground = new CustControlLib.CustomPanel();
@@ -86,6 +87,7 @@
             Controls.Add(customPanelBackground);
             Controls.Add(pictureBoxAnimation);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "LoadingForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "LoadingForm";

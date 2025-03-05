@@ -117,7 +117,7 @@
             customButtonSubmit.FlatStyle = FlatStyle.Flat;
             customButtonSubmit.Font = new Font("Bahnschrift SemiBold", 12F, FontStyle.Bold);
             customButtonSubmit.ForeColor = Color.White;
-            customButtonSubmit.Location = new Point(801, 477);
+            customButtonSubmit.Location = new Point(801, 426);
             customButtonSubmit.Name = "customButtonSubmit";
             customButtonSubmit.Size = new Size(119, 53);
             customButtonSubmit.TabIndex = 5;
@@ -139,7 +139,7 @@
             panelForm.Controls.Add(labelCreateCustomer);
             panelForm.Location = new Point(360, 100);
             panelForm.Name = "panelForm";
-            panelForm.Size = new Size(560, 360);
+            panelForm.Size = new Size(560, 320);
             panelForm.TabIndex = 5;
             // 
             // labelEmail
@@ -147,7 +147,7 @@
             labelEmail.AutoSize = true;
             labelEmail.Font = new Font("Bahnschrift", 14F);
             labelEmail.ForeColor = Color.White;
-            labelEmail.Location = new Point(113, 248);
+            labelEmail.Location = new Point(113, 243);
             labelEmail.Name = "labelEmail";
             labelEmail.Size = new Size(74, 29);
             labelEmail.TabIndex = 16;
@@ -156,7 +156,7 @@
             // textBoxEmail
             // 
             textBoxEmail.Font = new Font("Bahnschrift", 12F);
-            textBoxEmail.Location = new Point(200, 248);
+            textBoxEmail.Location = new Point(200, 243);
             textBoxEmail.Name = "textBoxEmail";
             textBoxEmail.PlaceholderText = "eg. example@test.com";
             textBoxEmail.Size = new Size(296, 32);
@@ -165,7 +165,7 @@
             // textBoxForename
             // 
             textBoxForename.Font = new Font("Bahnschrift", 12F);
-            textBoxForename.Location = new Point(200, 89);
+            textBoxForename.Location = new Point(200, 84);
             textBoxForename.Name = "textBoxForename";
             textBoxForename.Size = new Size(296, 32);
             textBoxForename.TabIndex = 1;
@@ -173,7 +173,7 @@
             // textBoxTelNo
             // 
             textBoxTelNo.Font = new Font("Bahnschrift", 12F);
-            textBoxTelNo.Location = new Point(200, 195);
+            textBoxTelNo.Location = new Point(200, 190);
             textBoxTelNo.Name = "textBoxTelNo";
             textBoxTelNo.PlaceholderText = "eg. 07123456789";
             textBoxTelNo.Size = new Size(296, 32);
@@ -184,7 +184,7 @@
             labelTelNo.AutoSize = true;
             labelTelNo.Font = new Font("Bahnschrift", 14F);
             labelTelNo.ForeColor = Color.White;
-            labelTelNo.Location = new Point(37, 195);
+            labelTelNo.Location = new Point(37, 190);
             labelTelNo.Name = "labelTelNo";
             labelTelNo.Size = new Size(163, 29);
             labelTelNo.TabIndex = 8;
@@ -193,7 +193,7 @@
             // textBoxSurname
             // 
             textBoxSurname.Font = new Font("Bahnschrift", 12F);
-            textBoxSurname.Location = new Point(200, 142);
+            textBoxSurname.Location = new Point(200, 137);
             textBoxSurname.Name = "textBoxSurname";
             textBoxSurname.Size = new Size(296, 32);
             textBoxSurname.TabIndex = 2;
@@ -203,7 +203,7 @@
             labelSurname.AutoSize = true;
             labelSurname.Font = new Font("Bahnschrift", 14F);
             labelSurname.ForeColor = Color.White;
-            labelSurname.Location = new Point(82, 142);
+            labelSurname.Location = new Point(82, 137);
             labelSurname.Name = "labelSurname";
             labelSurname.Size = new Size(111, 29);
             labelSurname.TabIndex = 6;
@@ -214,7 +214,7 @@
             labelForename.AutoSize = true;
             labelForename.Font = new Font("Bahnschrift", 14F);
             labelForename.ForeColor = Color.White;
-            labelForename.Location = new Point(72, 89);
+            labelForename.Location = new Point(72, 84);
             labelForename.Name = "labelForename";
             labelForename.Size = new Size(122, 29);
             labelForename.TabIndex = 4;

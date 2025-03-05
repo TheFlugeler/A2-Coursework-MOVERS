@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MasterForm));
             panelMaster = new Panel();
             SuspendLayout();
             // 
@@ -47,6 +48,7 @@
             ClientSize = new Size(1262, 744);
             Controls.Add(panelMaster);
             Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximumSize = new Size(1280, 791);
             MinimumSize = new Size(1280, 791);
             Name = "MasterForm";

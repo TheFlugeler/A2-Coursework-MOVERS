@@ -114,6 +114,7 @@
             // 
             numericUpDownWorkers.Font = new Font("Bahnschrift", 12F);
             numericUpDownWorkers.Location = new Point(221, 231);
+            numericUpDownWorkers.Maximum = new decimal(new int[] { 4, 0, 0, 0 });
             numericUpDownWorkers.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numericUpDownWorkers.Name = "numericUpDownWorkers";
             numericUpDownWorkers.Size = new Size(86, 32);

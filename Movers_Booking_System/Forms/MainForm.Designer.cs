@@ -398,7 +398,6 @@
             // 
             // buttonMessages
             // 
-            buttonMessages.BackgroundImage = Media.SystemImages.email;
             buttonMessages.BackgroundImageLayout = ImageLayout.Zoom;
             buttonMessages.Dock = DockStyle.Top;
             buttonMessages.FlatAppearance.BorderSize = 0;

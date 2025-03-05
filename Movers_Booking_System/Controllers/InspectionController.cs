@@ -6,19 +6,26 @@ namespace Movers_Booking_System.Controllers;
 public static class InspectionController
 {
     private static string errorMessage = "";
-    public static bool ValidateNewInspectionDate(DateTime date, string id)
+    public static bool ValidateInspection(Inspection inspection)
     {
-        if (id != "") if (DAL.GetInspectionDate(id).Day == date.Day) return true;
-        if (DateTool.IsPublicHolidayOrSunday(date))
+        if (inspection.ID != "") if (DAL.GetInspectionDate(inspection.ID).Day == inspection.Date.Day) return true;
+        if (DateTool.IsPublicHolidayOrSunday(inspection.Date.Date))
         {
             errorMessage = "Selected date is a public holiday or a Sunday";
             return false;
         }
-        if (date < DateTime.Today) return false;
+        if (inspection.Date.Date < DateTime.Today) return false;
 
-        if (DAL.GetMatchingInspectionDates(date) >= 2)
+        if (DAL.GetMatchingInspectionDates(inspection.Date.Date) >= 2)
         {
             errorMessage = "Selected date has no free inspection slots";
+            return false;
+        }
+
+        if (!ValidationTool.ContainsOnlyLettersNumbersAndPunctuation(inspection.NewAddress)
+            || !ValidationTool.ContainsOnlyLettersNumbersAndPunctuation(inspection.OldAddress))
+        {
+            errorMessage = "Address is in an invalid format";
             return false;
         }
         return true;
@@ -31,7 +38,7 @@ public static class InspectionController
     }
     public static string GenerateNewInspectionID()
     {
-        List<string> idList = DAL.GetIDFromTable("Inspection");
+        List<string> idList = DAL.GetIDListFromTable("Inspection");
         List<int> idValues = new List<int>();
         foreach (string id in idList) idValues.Add(Convert.ToInt32(id.Substring(2)));
         int max = 0;
@@ -48,15 +55,31 @@ public static class InspectionController
     {
         List<Inspection> inspections = DAL.GetInspectionsOnDate(date);
         string totalSummary = "";
-        foreach (Inspection i in inspections) totalSummary += GetInspectionSummary(i);
+        foreach (Inspection i in inspections) totalSummary += $"Inspection ID - {i.ID}\nCustomer ID - {i.CustomerID}\n" +
+                $"Old Address - {i.OldAddress.ReplaceLineEndings(" ")}\nNew Address - {i.NewAddress.ReplaceLineEndings(" ")}\n\n\n";
         return totalSummary;
     }
 
-    private static string GetInspectionSummary(Inspection insp)
+    public static bool WriteInspection(Inspection inspection, bool editMode)
     {
-        string summary = $"Inspection ID - {insp.ID}\nCustomer ID - {insp.CustomerID}\n" +
-            $"Old Address - {insp.OldAddress}\nNew Address - {insp.NewAddress}\n\n\n";
-        return summary;
+        if (!ValidateInspection(inspection)) return false;
+        if (editMode)
+        {
+            if (DAL.UpdateInspection(inspection) == 1) return true;
+            else
+            {
+                errorMessage = "Update Inspection Query Failed";
+                return false;
+            }
+        }
+        else
+        {
+            if (DAL.WriteNewInspection(inspection) == 1) return true;
+            else
+            {
+                errorMessage = "Write New Inspection Query Failed";
+                return false;
+            }
+        }
     }
-    public static string[] GenerateInvoiceList(Inspection insp) => ["House Inspection", "£20"];
 }

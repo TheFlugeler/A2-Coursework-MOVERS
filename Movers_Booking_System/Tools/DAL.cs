@@ -3,7 +3,6 @@ using Movers_Booking_System.Controllers;
 using Movers_Booking_System.Models;
 using System.Configuration;
 using System.Data;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Movers_Booking_System.Tools;
 
@@ -29,6 +28,30 @@ public static class DAL
         }
         return dt;
     }
+
+    public static List<string> GetIDListFromTable(string tableName)
+    {
+        List<string> idList = new();
+        using (SqlConnection connection = new(_connectionString))
+        {
+            connection.Open();
+
+            string query = $"SELECT ID FROM {tableName}";
+            SqlCommand cmd = new(query, connection);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                idList.Add((string)reader["ID"]);
+            }
+
+            connection.Close();
+            reader.Dispose();
+            cmd.Dispose();
+        }
+        return idList;
+    }
+
     public static List<Customer> GetCustomerList()
     {
         List<Customer> customerList = new();
@@ -57,6 +80,40 @@ public static class DAL
         return customerList;
     }
 
+    public static int GetNoCustomerRecords(string custID)
+    {
+        int noRecords = 0;
+        using (SqlConnection connection = new(_connectionString))
+        {
+            connection.Open();
+
+            string query = $"SELECT * FROM Job WHERE CustomerID = '{custID}'";
+            SqlCommand cmd = new(query, connection);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read()) noRecords++;
+
+            connection.Close();
+            reader.DisposeAsync();
+            cmd.Dispose();
+        }
+        using (SqlConnection connection = new(_connectionString))
+        {
+            connection.Open();
+
+            string query = $"SELECT * FROM Inspection WHERE CustomerID = '{custID}'";
+            SqlCommand cmd = new(query, connection);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read()) noRecords++;
+
+            connection.Close();
+            reader.DisposeAsync();
+            cmd.Dispose();
+        }
+        return noRecords;
+    }
+
     public static List<SpecialItem> GetSpecialItemsList()
     {
         List<SpecialItem> specialItemList = new();
@@ -83,210 +140,6 @@ public static class DAL
         return specialItemList;
     }
 
-    public static List<Job> GetJobsList()
-    {
-        List<Job> jobList = new();
-        using (SqlConnection connection = new(_connectionString))
-        {
-            connection.Open();
-
-            string query = $"SELECT * FROM Job";
-            SqlCommand cmd = new(query, connection);
-            SqlDataReader reader = cmd.ExecuteReader();
-
-            while (reader.Read())
-            {
-                jobList.Add(new(
-                    (string)reader["ID"],
-                    (string)reader["CustomerID"],
-                    (DateTime)reader["EstimateDate"],
-                    (bool)reader["Confirmed"],
-                    (DateTime)reader["JobDate"],
-                    (string)reader["OldAddress"],
-                    (string)reader["NewAddress"],
-                    (int)reader["NoRooms"],
-                    (bool)reader["IsApartment"],
-                    (int)reader["NoBoxes"],
-                    (bool)reader["SelfPacked"],
-                    (bool)reader["FurnitureAssembly"],
-                    (string)reader["ExtraRequirements"],
-                    Convert.ToDouble(reader["Price"]),
-                    Convert.ToDouble(reader["AmountPaid"]),
-                    (int)reader["NoWorkers"],
-                    (int)reader["NoSmallVans"],
-                    (int)reader["NoMediumVans"],
-                    (int)reader["NoLargeVans"],
-                    new List<SpecialItem>()));
-            }
-            connection.Close();
-            reader.Dispose();
-            cmd.Dispose();
-        }
-        foreach (Job j in jobList) j.SpecialItems = GetSpecialItems(j.ID);
-
-        return jobList;
-    }
-    public static List<Inspection> GetInspectionsList()
-    {
-        List<Inspection> inspectionsList = new();
-        using (SqlConnection connection = new(_connectionString))
-        {
-            connection.Open();
-
-            string query = $"SELECT * FROM Inspection";
-            SqlCommand cmd = new(query, connection);
-            SqlDataReader reader = cmd.ExecuteReader();
-
-            while (reader.Read())
-            {
-                inspectionsList.Add(new(
-                    (string)reader["ID"],
-                    (string)reader["CustomerID"],
-                    (string)reader["OldAddress"],
-                    (string)reader["NewAddress"],
-                    Convert.ToDateTime(reader["Date"]),
-                    (bool)reader["Paid"]));
-            }
-            connection.Close();
-            reader.Dispose();
-            cmd.Dispose();
-        }
-
-        return inspectionsList;
-    }
-    public static Staff? GetStaffDetails(string username)
-    {
-        Staff? staff;
-        using (SqlConnection connection = new(_connectionString))
-        {
-            connection.Open();
-
-            string query = $"SELECT * FROM Staff WHERE Username='{username}'";
-            SqlCommand cmd = new(query, connection);
-            SqlDataReader reader = cmd.ExecuteReader();
-            reader.Read();
-            if (reader.HasRows)
-            {
-                staff = new((string)reader["Username"], (string)reader["Password"], (string)reader["Salt"], 
-                    (string)reader["Forename"], (string)reader["Surname"], (int)reader["Profile"]);
-            }
-            else staff = null;
-            connection.Close();
-            reader.DisposeAsync();
-            cmd.Dispose();
-        }
-        return staff;
-    }
-
-    public static List<string> GetIDFromTable(string tableName)
-    {
-        List<string> idList = new();
-        using (SqlConnection connection = new(_connectionString))
-        {
-            connection.Open();
-
-            string query = $"SELECT ID FROM {tableName}";
-            SqlCommand cmd = new(query, connection);
-            SqlDataReader reader = cmd.ExecuteReader();
-
-            while (reader.Read())
-            {
-                idList.Add((string)reader["ID"]);
-            }
-
-            connection.Close();
-            reader.Dispose();
-            cmd.Dispose();
-        }
-        return idList;
-    }
-
-    public static int GetMatchingInspectionDates(DateTime date)
-    {
-        int noDates = 0;
-        using (SqlConnection connection = new(_connectionString))
-        {
-            connection.Open();
-
-            string query = $"SELECT * FROM Inspection WHERE Date='{date:yyyy-MM-dd}'";
-            SqlCommand cmd = new(query, connection);
-            SqlDataReader reader = cmd.ExecuteReader();
-
-            while (reader.Read()) noDates++;
-
-            connection.Close();
-            reader.DisposeAsync();
-            cmd.Dispose();
-        }
-        return noDates;
-    }
-
-    public static DateTime GetInspectionDate(string id)
-    {
-        DateTime date = DateTime.Now;
-        using (SqlConnection connection = new(_connectionString))
-        {
-            connection.Open();
-
-            string query = $"SELECT * FROM Inspection WHERE ID='{id}'";
-            SqlCommand cmd = new(query, connection);
-            SqlDataReader reader = cmd.ExecuteReader();
-
-            reader.Read();
-            date = (DateTime)reader["Date"];
-
-            connection.Close();
-            reader.DisposeAsync();
-            cmd.Dispose();
-        }
-        return date;
-    }
-
-    public static int GetWorkersOnDate(DateTime date)
-    {
-        int noWorkers = 0;
-        using (SqlConnection connection = new(_connectionString))
-        {
-            connection.Open();
-
-            string query = $"SELECT NoWorkers FROM Job WHERE JobDate='{date:yyyy-MM-dd}'";
-            SqlCommand cmd = new(query, connection);
-            SqlDataReader reader = cmd.ExecuteReader();
-
-            while (reader.Read()) noWorkers += (int)reader["NoWorkers"];
-
-            connection.Close();
-            reader.DisposeAsync();
-            cmd.Dispose();
-        }
-        return noWorkers;
-    }
-
-    public static int[] GetVansOnDate(DateTime date)
-    {
-        int[] vans = new int[3];
-        using (SqlConnection connection = new(_connectionString))
-        {
-            connection.Open();
-
-            string query = $"SELECT NoSmallVans, NoMediumVans, NoLargeVans FROM Job WHERE JobDate='{date:yyyy-MM-dd}'";
-            SqlCommand cmd = new(query, connection);
-            SqlDataReader reader = cmd.ExecuteReader();
-
-            while (reader.Read())
-            {
-                vans[0] += (int)reader["NoSmallVans"];
-                vans[1] += (int)reader["NoMediumVans"];
-                vans[2] += (int)reader["NoLargeVans"];
-            }
-
-            connection.Close();
-            reader.DisposeAsync();
-            cmd.Dispose();
-        }
-        return vans;
-    }
-
     public static List<SpecialItem> GetSpecialItems(string jobID)
     {
         List<string> itemNames = new();
@@ -302,7 +155,7 @@ public static class DAL
             while (reader.Read())
             {
                 string name = (string)reader["SpecialItemName"];
-                for (int i = 0; i < (int)reader["Quantity"]; i++) itemNames.Add(name);                
+                for (int i = 0; i < (int)reader["Quantity"]; i++) itemNames.Add(name);
             }
 
             connection.Close();
@@ -349,6 +202,50 @@ public static class DAL
             cmd.Dispose();
         }
         return noItems;
+    }
+
+    public static List<Job> GetJobsList()
+    {
+        List<Job> jobList = new();
+        using (SqlConnection connection = new(_connectionString))
+        {
+            connection.Open();
+
+            string query = $"SELECT * FROM Job";
+            SqlCommand cmd = new(query, connection);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                jobList.Add(new(
+                    (string)reader["ID"],
+                    (string)reader["CustomerID"],
+                    (DateTime)reader["EstimateDate"],
+                    (bool)reader["Confirmed"],
+                    (DateTime)reader["JobDate"],
+                    (string)reader["OldAddress"],
+                    (string)reader["NewAddress"],
+                    (int)reader["NoRooms"],
+                    (bool)reader["IsApartment"],
+                    (int)reader["NoBoxes"],
+                    (bool)reader["SelfPacked"],
+                    (bool)reader["FurnitureAssembly"],
+                    (string)reader["ExtraRequirements"],
+                    Convert.ToDouble(reader["Price"]),
+                    Convert.ToDouble(reader["AmountPaid"]),
+                    (int)reader["NoWorkers"],
+                    (int)reader["NoSmallVans"],
+                    (int)reader["NoMediumVans"],
+                    (int)reader["NoLargeVans"],
+                    new List<SpecialItem>()));
+            }
+            connection.Close();
+            reader.Dispose();
+            cmd.Dispose();
+        }
+        foreach (Job j in jobList) j.SpecialItems = GetSpecialItems(j.ID);
+
+        return jobList;
     }
 
     public static int GetNoJobs(string specialItemID)
@@ -415,6 +312,55 @@ public static class DAL
         return jobList;
     }
 
+    public static List<Inspection> GetInspectionsList()
+    {
+        List<Inspection> inspectionsList = new();
+        using (SqlConnection connection = new(_connectionString))
+        {
+            connection.Open();
+
+            string query = $"SELECT * FROM Inspection";
+            SqlCommand cmd = new(query, connection);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                inspectionsList.Add(new(
+                    (string)reader["ID"],
+                    (string)reader["CustomerID"],
+                    (string)reader["OldAddress"],
+                    (string)reader["NewAddress"],
+                    Convert.ToDateTime(reader["Date"]),
+                    (bool)reader["Paid"]));
+            }
+            connection.Close();
+            reader.Dispose();
+            cmd.Dispose();
+        }
+
+        return inspectionsList;
+    }
+
+    public static int GetMatchingInspectionDates(DateTime date)
+    {
+        int noDates = 0;
+        using (SqlConnection connection = new(_connectionString))
+        {
+            connection.Open();
+
+            string query = $"SELECT * FROM Inspection WHERE Date='{date:yyyy-MM-dd}'";
+            SqlCommand cmd = new(query, connection);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read()) noDates++;
+
+            connection.Close();
+            reader.DisposeAsync();
+            cmd.Dispose();
+        }
+        return noDates;
+    }
+
     public static List<Inspection> GetInspectionsOnDate(DateTime date)
     {
         List<Inspection> inspectionsList = new();
@@ -444,6 +390,51 @@ public static class DAL
         return inspectionsList;
     }
 
+    public static DateTime GetInspectionDate(string id)
+    {
+        DateTime date = DateTime.Now;
+        using (SqlConnection connection = new(_connectionString))
+        {
+            connection.Open();
+
+            string query = $"SELECT * FROM Inspection WHERE ID='{id}'";
+            SqlCommand cmd = new(query, connection);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            reader.Read();
+            date = (DateTime)reader["Date"];
+
+            connection.Close();
+            reader.DisposeAsync();
+            cmd.Dispose();
+        }
+        return date;
+    }
+
+    public static Staff? GetStaffDetails(string username)
+    {
+        Staff? staff;
+        using (SqlConnection connection = new(_connectionString))
+        {
+            connection.Open();
+
+            string query = $"SELECT * FROM Staff WHERE Username='{username}'";
+            SqlCommand cmd = new(query, connection);
+            SqlDataReader reader = cmd.ExecuteReader();
+            reader.Read();
+            if (reader.HasRows)
+            {
+                staff = new((string)reader["Username"], (string)reader["Password"], (string)reader["Salt"],
+                    (string)reader["Forename"], (string)reader["Surname"], (int)reader["Profile"]);
+            }
+            else staff = null;
+            connection.Close();
+            reader.DisposeAsync();
+            cmd.Dispose();
+        }
+        return staff;
+    }
+
     public static List<string> GetStaffUsernames()
     {
         List<string> usernameList = new();
@@ -467,38 +458,49 @@ public static class DAL
         return usernameList;
     }
 
-    public static int GetNoCustomerRecords(string custID)
+    public static int GetWorkersOnDate(DateTime date)
     {
-        int noRecords = 0;
+        int noWorkers = 0;
         using (SqlConnection connection = new(_connectionString))
         {
             connection.Open();
 
-            string query = $"SELECT * FROM Job WHERE CustomerID = '{custID}'";
+            string query = $"SELECT NoWorkers FROM Job WHERE JobDate='{date:yyyy-MM-dd}'";
             SqlCommand cmd = new(query, connection);
             SqlDataReader reader = cmd.ExecuteReader();
 
-            while (reader.Read()) noRecords++;
+            while (reader.Read()) noWorkers += (int)reader["NoWorkers"];
 
             connection.Close();
             reader.DisposeAsync();
             cmd.Dispose();
         }
+        return noWorkers;
+    }
+
+    public static int[] GetVansOnDate(DateTime date)
+    {
+        int[] vans = new int[3];
         using (SqlConnection connection = new(_connectionString))
         {
             connection.Open();
 
-            string query = $"SELECT * FROM Inspection WHERE CustomerID = '{custID}'";
+            string query = $"SELECT NoSmallVans, NoMediumVans, NoLargeVans FROM Job WHERE JobDate='{date:yyyy-MM-dd}'";
             SqlCommand cmd = new(query, connection);
             SqlDataReader reader = cmd.ExecuteReader();
 
-            while (reader.Read()) noRecords++;
+            while (reader.Read())
+            {
+                vans[0] += (int)reader["NoSmallVans"];
+                vans[1] += (int)reader["NoMediumVans"];
+                vans[2] += (int)reader["NoLargeVans"];
+            }
 
             connection.Close();
             reader.DisposeAsync();
             cmd.Dispose();
         }
-        return noRecords;
+        return vans;
     }
     #endregion
 
@@ -592,7 +594,7 @@ public static class DAL
             InsertJobCommand.CommandType = CommandType.StoredProcedure;
             InsertJobCommand.CommandText = "AddJob";
 
-            job.ID = EstimateController.GenerateNewJobID();
+            job.ID = JobController.GenerateNewJobID();
 
             InsertJobCommand.Parameters.Add(new SqlParameter("@id", job.ID));
             InsertJobCommand.Parameters.Add(new SqlParameter("@customerID", job.CustomerID));
@@ -794,6 +796,7 @@ public static class DAL
             UpdateJobCommand.Parameters.Add(new SqlParameter("@noSmallVans", job.NoSmallVans));
             UpdateJobCommand.Parameters.Add(new SqlParameter("@noMediumVans", job.NoMediumVans));
             UpdateJobCommand.Parameters.Add(new SqlParameter("@noLargeVans", job.NoLargeVans));
+
             rowsAffected = UpdateJobCommand.ExecuteNonQuery();
 
             connection.Close();
@@ -803,8 +806,9 @@ public static class DAL
         return rowsAffected;
     }
 
-    public static void UpdateStaff(Staff staff)
+    public static int UpdateStaff(Staff staff)
     {
+        int rowsAffected;
         using (SqlConnection connection = new(_connectionString))
         {
             connection.Open();
@@ -822,10 +826,11 @@ public static class DAL
             UpdateStaffCommand.Parameters.Add(new SqlParameter("@surname", staff.Surname));
             UpdateStaffCommand.Parameters.Add(new SqlParameter("@profile", staff.Profile));
 
-            UpdateStaffCommand.ExecuteNonQuery();
+            rowsAffected = UpdateStaffCommand.ExecuteNonQuery();
 
             connection.Close();
         }
+        return rowsAffected;
     }
     #endregion
 
@@ -885,6 +890,7 @@ public static class DAL
         }
         return rowsAffected;
     }
+
     public static int DeleteCustomerRecords(string custID)
     {
         int rowsAffected;

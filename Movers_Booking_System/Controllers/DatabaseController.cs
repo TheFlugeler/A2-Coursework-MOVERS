@@ -5,7 +5,7 @@ using System.Data;
 
 namespace Movers_Booking_System.Controllers;
 
-static class DatabaseController
+public static class DatabaseController
 {
     private static string errorMessage = "";
     public static string ReadErrorMessage()
@@ -61,6 +61,18 @@ static class DatabaseController
             items);
         return job;
     }
+
+    public static Staff GetStaffFromRow(DataGridViewRow row)
+    {
+        Staff staff = new Staff(
+            (string)row.Cells[0].Value,
+            (string)row.Cells[1].Value,
+            (string)row.Cells[2].Value,
+            (string)row.Cells[3].Value,
+            (string)row.Cells[4].Value,
+            (int)row.Cells[5].Value);
+        return staff;
+    }
     public static SpecialItem GetItemFromRow(DataGridViewRow row)
     {
         SpecialItem item = new SpecialItem(
@@ -93,6 +105,15 @@ static class DatabaseController
             int noRecords = DAL.GetNoCustomerRecords(id);
             errorMessage = $"Deleting this record will result in {noRecords} Job/ Inspection records being deleted\nDo you wish to continue?";
         }
+        else if (database == "Staff")
+        {
+            string staffUsername = rows[0].Cells[0].ToString();
+            if (staffUsername == MainForm.StaffUsername)
+            {
+                errorMessage = "Cannot delete current user's staff profile";
+                return false;
+            }
+        }
         return true;
     }
     public static void DeleteRecord(DataGridViewRow row, string database)
@@ -124,6 +145,10 @@ static class DatabaseController
             case "SpecialItem":
                 SpecialItem item = GetItemFromRow(rows[0]);
                 DisplayController.DisplayForm(new SpecialItemForm(item));
+                break;
+            case "Staff":
+                Staff staff = GetStaffFromRow(rows[0]);
+                DisplayController.DisplayForm(new ProfileForm(staff));
                 break;
             default: break;
         }

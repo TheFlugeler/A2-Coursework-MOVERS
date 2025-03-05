@@ -7,7 +7,7 @@ public class Staff
     public string Salt { get; set; }
     public string Forename { get; set; }
     public string Surname { get; set; }
-    public int Profile {  get; set; }
+    public int Profile { get; set; }
     public Staff(string username, string password, string salt, string forename, string surname, int profile)
     {
         Username = username;

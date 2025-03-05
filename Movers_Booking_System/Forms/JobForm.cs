@@ -12,6 +12,7 @@ public partial class JobForm : Form
     {
         InitializeComponent();
         FillEstimateList();
+        if (jobList.Count > 0) selectedJob = jobList[0];
     }
     private void FillEstimateList()
     {
@@ -22,34 +23,26 @@ public partial class JobForm : Form
         comboBoxEstimate.DataSource = jobNames;
     }
     private void buttonBack_Click(object sender, EventArgs e) => DisplayController.DisplayForm(new MainForm());
-    private void comboBoxEstimate_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        selectedJob = jobList[comboBoxEstimate.SelectedIndex];
-        textBoxPrice.Text = $"£{selectedJob.Price}";
-    }
+    private void comboBoxEstimate_SelectedIndexChanged(object sender, EventArgs e) => textBoxPrice.Text = $"£{jobList[comboBoxEstimate.SelectedIndex].Price}";
     private void customButtonSubmit_Click(object sender, EventArgs e)
     {
-        if (!checkBoxConfirmed.Checked)
+        if (comboBoxEstimate.SelectedIndex < 0)
         {
-            MessageBox.Show("Estimate must be confirmed before it is converted into a job");
+            MessageBox.Show("Invalid Estimate Selected", "Error");
             return;
         }
-        double amountPaid;
-        if (!double.TryParse(textBox1.Text, out amountPaid))
+        if (!double.TryParse(textBox1.Text, out double amountPaid))
         {
             MessageBox.Show("Amount Paid has an invalid format", "Error");
             return;
         }
-        if (amountPaid < (Convert.ToDouble(textBoxPrice.Text.Substring(1)) / 2))
+        selectedJob.AmountPaid = amountPaid;
+        selectedJob.Confirmed = checkBoxConfirmed.Checked;
+        if (JobController.ConvertJob(selectedJob))
         {
-            MessageBox.Show("Amount paid must be at least the 50% deposit");
-            return;
+            MessageBox.Show("Job Converted Successfully");
+            DisplayController.DisplayForm(new MainForm());
         }
-
-        selectedJob.Confirmed = true;
-        selectedJob.AmountPaid = Convert.ToDouble(textBox1.Text);
-        DAL.UpdateJob(selectedJob);
-        MessageBox.Show("Job successfully converted", "Success");
-        DisplayController.DisplayForm(new MainForm());
+        else MessageBox.Show(JobController.ReadErrorMessage(), "Error");
     }
 }

@@ -13,7 +13,7 @@ public static class CustomerController
         errorMessage = "";
         return msg;
     }
-    public static bool ValidateCustomerDetails(Customer cust)
+    private static bool ValidateCustomerDetails(Customer cust)
     {
         var emailTool = new EmailAddressAttribute();
         List<Customer> custList = DAL.GetCustomerList();
@@ -48,6 +48,16 @@ public static class CustomerController
             errorMessage = "Email is in an invalid format";
             return false;
         }
+        if (!ValidationTool.ContainsOnlyLetters(cust.Forename))
+        {
+            errorMessage = "Forename is invalid";
+            return false;
+        }
+        if (!ValidationTool.ContainsOnlyLetters(cust.Surname))
+        {
+            errorMessage = "Surname is invalid";
+            return false;
+        }
         return true;
     }
     public static List<string> GetCustomerNames()
@@ -76,7 +86,7 @@ public static class CustomerController
     }
     public static string GenerateNewCustID()
     {
-        List<string> idList = DAL.GetIDFromTable("Customer");
+        List<string> idList = DAL.GetIDListFromTable("Customer");
         List<int> idValues = new List<int>();
         foreach (string id in idList) idValues.Add(Convert.ToInt32(id.Substring(2)));
         int max = 0;
@@ -90,19 +100,27 @@ public static class CustomerController
     }
     public static bool WriteCustomer(Customer cust, bool editMode)
     {
-        bool valid = ValidateCustomerDetails(cust);
-        if (!valid) return false;
+        if (!ValidateCustomerDetails(cust)) return false;
         else
         {
-            int rows;
-            if (editMode) rows = DAL.UpdateCustomer(cust);
-            else rows = DAL.WriteNewCustomer(cust);
-            if (rows != 1)
+            if (editMode)
             {
-                errorMessage = "Database error, Customer update unsuccessful";
-                return false;
+                if (DAL.UpdateCustomer(cust) == 1) return true;
+                else
+                {
+                    errorMessage = "Update Customer Query Failed";
+                    return false;
+                }
             }
-            else return true;
+            else
+            {
+                if (DAL.WriteNewCustomer(cust) == 1) return true;
+                else
+                {
+                    errorMessage = "Write New Customer Query Failed";
+                    return false;
+                }
+            }
         }
     }
 }
