@@ -89,7 +89,7 @@
             customButtonLogin.Location = new Point(100, 254);
             customButtonLogin.Name = "customButtonLogin";
             customButtonLogin.Size = new Size(160, 38);
-            customButtonLogin.TabIndex = 7;
+            customButtonLogin.TabIndex = 3;
             customButtonLogin.Text = "LOGIN";
             customButtonLogin.UseVisualStyleBackColor = false;
             customButtonLogin.Click += customButtonLogin_Click;
@@ -113,7 +113,7 @@
             textBoxPassword.Name = "textBoxPassword";
             textBoxPassword.PasswordChar = '*';
             textBoxPassword.Size = new Size(300, 32);
-            textBoxPassword.TabIndex = 5;
+            textBoxPassword.TabIndex = 2;
             textBoxPassword.KeyPress += textBoxPassword_KeyPress;
             // 
             // labelUsername

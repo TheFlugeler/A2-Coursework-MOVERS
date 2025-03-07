@@ -117,7 +117,7 @@
             buttonRight.Location = new Point(508, 90);
             buttonRight.Name = "buttonRight";
             buttonRight.Size = new Size(30, 30);
-            buttonRight.TabIndex = 21;
+            buttonRight.TabIndex = 2;
             buttonRight.UseVisualStyleBackColor = true;
             buttonRight.Click += buttonRight_Click;
             // 
@@ -132,7 +132,7 @@
             buttonLeft.Location = new Point(222, 91);
             buttonLeft.Name = "buttonLeft";
             buttonLeft.Size = new Size(30, 30);
-            buttonLeft.TabIndex = 20;
+            buttonLeft.TabIndex = 1;
             buttonLeft.UseVisualStyleBackColor = true;
             buttonLeft.Click += buttonLeft_Click;
             // 
@@ -180,7 +180,7 @@
             customButtonSubmit.Location = new Point(800, 425);
             customButtonSubmit.Name = "customButtonSubmit";
             customButtonSubmit.Size = new Size(119, 43);
-            customButtonSubmit.TabIndex = 7;
+            customButtonSubmit.TabIndex = 3;
             customButtonSubmit.Text = "Print";
             customButtonSubmit.UseVisualStyleBackColor = false;
             customButtonSubmit.Click += customButtonSubmit_Click;

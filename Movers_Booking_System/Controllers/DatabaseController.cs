@@ -107,8 +107,7 @@ public static class DatabaseController
         }
         else if (database == "Staff")
         {
-            string staffUsername = rows[0].Cells[0].ToString();
-            if (staffUsername == MainForm.StaffUsername)
+            if (id == MainForm.StaffUsername)
             {
                 errorMessage = "Cannot delete current user's staff profile";
                 return false;

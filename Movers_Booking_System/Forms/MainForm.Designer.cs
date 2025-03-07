@@ -65,6 +65,7 @@
             labelPrint = new Label();
             pictureBoxPrint = new PictureBox();
             timerPrintDropdown = new System.Windows.Forms.Timer(components);
+            pictureBox1 = new PictureBox();
             panelTopBar.SuspendLayout();
             panelFormDropdown.SuspendLayout();
             panelFormDropdownButton.SuspendLayout();
@@ -78,6 +79,7 @@
             panelPrintDropdown.SuspendLayout();
             panelPrintButton.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxPrint).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panelTopBar
@@ -532,6 +534,16 @@
             timerPrintDropdown.Interval = 10;
             timerPrintDropdown.Tick += timerPrintDropdown_Tick;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Media.SystemImages.MOVERS_Background;
+            pictureBox1.Location = new Point(0, 220);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(800, 800);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 7;
+            pictureBox1.TabStop = false;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -543,6 +555,7 @@
             Controls.Add(panelProfileDropdown);
             Controls.Add(panelFormDropdown);
             Controls.Add(panelTopBar);
+            Controls.Add(pictureBox1);
             Name = "MainForm";
             Text = "MainForm";
             panelTopBar.ResumeLayout(false);
@@ -561,6 +574,7 @@
             panelPrintButton.ResumeLayout(false);
             panelPrintButton.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxPrint).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -605,5 +619,6 @@
         private Button buttonPrintJob;
         private System.Windows.Forms.Timer timerPrintDropdown;
         private Button buttonPrintSchedule;
+        private PictureBox pictureBox1;
     }
 }

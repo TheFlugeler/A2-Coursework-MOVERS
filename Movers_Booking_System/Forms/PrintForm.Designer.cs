@@ -158,7 +158,7 @@
             comboBox1.Location = new Point(210, 109);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(279, 32);
-            comboBox1.TabIndex = 4;
+            comboBox1.TabIndex = 1;
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // labelSelectRecord
@@ -185,7 +185,7 @@
             customButtonPrint.Location = new Point(797, 502);
             customButtonPrint.Name = "customButtonPrint";
             customButtonPrint.Size = new Size(114, 50);
-            customButtonPrint.TabIndex = 7;
+            customButtonPrint.TabIndex = 2;
             customButtonPrint.Text = "Print";
             customButtonPrint.UseVisualStyleBackColor = false;
             customButtonPrint.Click += customButtonPrint_Click;

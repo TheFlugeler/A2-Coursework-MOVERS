@@ -1746,11 +1746,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jcoul\\Desktop\\School stuff\\SSD\\A2\\Coursework\\Movers_Booking_System\\Movers_Booking_System\\Movers_Booking_System.csproj",
+      "projectUniqueName": "C:\\Users\\jcoul\\Desktop\\School\\SSD\\A2\\Coursework\\Movers_Booking_System\\Movers_Booking_System\\Movers_Booking_System.csproj",
       "projectName": "Movers_Booking_System",
-      "projectPath": "C:\\Users\\jcoul\\Desktop\\School stuff\\SSD\\A2\\Coursework\\Movers_Booking_System\\Movers_Booking_System\\Movers_Booking_System.csproj",
+      "projectPath": "C:\\Users\\jcoul\\Desktop\\School\\SSD\\A2\\Coursework\\Movers_Booking_System\\Movers_Booking_System\\Movers_Booking_System.csproj",
       "packagesPath": "C:\\Users\\jcoul\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jcoul\\Desktop\\School stuff\\SSD\\A2\\Coursework\\Movers_Booking_System\\Movers_Booking_System\\obj\\",
+      "outputPath": "C:\\Users\\jcoul\\Desktop\\School\\SSD\\A2\\Coursework\\Movers_Booking_System\\Movers_Booking_System\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -73,7 +73,7 @@
             customButtonSubmit.Location = new Point(809, 446);
             customButtonSubmit.Name = "customButtonSubmit";
             customButtonSubmit.Size = new Size(111, 48);
-            customButtonSubmit.TabIndex = 1;
+            customButtonSubmit.TabIndex = 5;
             customButtonSubmit.Text = "Submit";
             customButtonSubmit.UseVisualStyleBackColor = false;
             customButtonSubmit.Click += customButtonSubmit_Click;
@@ -101,7 +101,7 @@
             textBox1.Location = new Point(232, 259);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(263, 32);
-            textBox1.TabIndex = 12;
+            textBox1.TabIndex = 4;
             // 
             // labelPaid
             // 
@@ -154,7 +154,7 @@
             checkBoxConfirmed.Location = new Point(232, 221);
             checkBoxConfirmed.Name = "checkBoxConfirmed";
             checkBoxConfirmed.Size = new Size(18, 17);
-            checkBoxConfirmed.TabIndex = 6;
+            checkBoxConfirmed.TabIndex = 3;
             checkBoxConfirmed.UseVisualStyleBackColor = true;
             // 
             // textBoxPrice
@@ -164,7 +164,7 @@
             textBoxPrice.Name = "textBoxPrice";
             textBoxPrice.ReadOnly = true;
             textBoxPrice.Size = new Size(263, 32);
-            textBoxPrice.TabIndex = 5;
+            textBoxPrice.TabIndex = 2;
             // 
             // comboBoxEstimate
             // 
@@ -174,7 +174,7 @@
             comboBoxEstimate.Location = new Point(232, 108);
             comboBoxEstimate.Name = "comboBoxEstimate";
             comboBoxEstimate.Size = new Size(263, 32);
-            comboBoxEstimate.TabIndex = 4;
+            comboBoxEstimate.TabIndex = 1;
             comboBoxEstimate.SelectedIndexChanged += comboBoxEstimate_SelectedIndexChanged;
             // 
             // labelCreateJob

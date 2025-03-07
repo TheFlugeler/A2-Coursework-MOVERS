@@ -130,7 +130,7 @@
             checkBox1.Location = new Point(200, 292);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(201, 28);
-            checkBox1.TabIndex = 21;
+            checkBox1.TabIndex = 4;
             checkBox1.Text = "Set New Password";
             checkBox1.UseVisualStyleBackColor = true;
             checkBox1.CheckedChanged += checkBox1_CheckedChanged;
@@ -146,7 +146,7 @@
             buttonRight.Location = new Point(330, 365);
             buttonRight.Name = "buttonRight";
             buttonRight.Size = new Size(30, 30);
-            buttonRight.TabIndex = 20;
+            buttonRight.TabIndex = 7;
             buttonRight.UseVisualStyleBackColor = true;
             buttonRight.Click += buttonRight_Click;
             // 
@@ -161,7 +161,7 @@
             buttonLeft.Location = new Point(220, 365);
             buttonLeft.Name = "buttonLeft";
             buttonLeft.Size = new Size(30, 30);
-            buttonLeft.TabIndex = 19;
+            buttonLeft.TabIndex = 6;
             buttonLeft.UseVisualStyleBackColor = true;
             buttonLeft.Click += buttonLeft_Click;
             // 
@@ -192,7 +192,7 @@
             textBoxPassword.Name = "textBoxPassword";
             textBoxPassword.PlaceholderText = "Input New Password";
             textBoxPassword.Size = new Size(296, 32);
-            textBoxPassword.TabIndex = 4;
+            textBoxPassword.TabIndex = 5;
             // 
             // textBoxForename
             // 
@@ -200,7 +200,7 @@
             textBoxForename.Location = new Point(200, 147);
             textBoxForename.Name = "textBoxForename";
             textBoxForename.Size = new Size(296, 32);
-            textBoxForename.TabIndex = 1;
+            textBoxForename.TabIndex = 2;
             // 
             // textBoxUsername
             // 
@@ -208,7 +208,7 @@
             textBoxUsername.Location = new Point(200, 96);
             textBoxUsername.Name = "textBoxUsername";
             textBoxUsername.Size = new Size(296, 32);
-            textBoxUsername.TabIndex = 3;
+            textBoxUsername.TabIndex = 1;
             // 
             // labelUsername
             // 
@@ -227,7 +227,7 @@
             textBoxSurname.Location = new Point(200, 198);
             textBoxSurname.Name = "textBoxSurname";
             textBoxSurname.Size = new Size(296, 32);
-            textBoxSurname.TabIndex = 2;
+            textBoxSurname.TabIndex = 3;
             // 
             // labelSurname
             // 
@@ -275,7 +275,7 @@
             customButtonSubmit.Location = new Point(792, 643);
             customButtonSubmit.Name = "customButtonSubmit";
             customButtonSubmit.Size = new Size(119, 49);
-            customButtonSubmit.TabIndex = 7;
+            customButtonSubmit.TabIndex = 8;
             customButtonSubmit.Text = "Submit";
             customButtonSubmit.UseVisualStyleBackColor = false;
             customButtonSubmit.Click += customButtonSubmit_Click;
@@ -289,7 +289,7 @@
             linkLabelNewStaff.Location = new Point(539, 643);
             linkLabelNewStaff.Name = "linkLabelNewStaff";
             linkLabelNewStaff.Size = new Size(217, 24);
-            linkLabelNewStaff.TabIndex = 8;
+            linkLabelNewStaff.TabIndex = 9;
             linkLabelNewStaff.TabStop = true;
             linkLabelNewStaff.Text = "Create New Staff Login";
             linkLabelNewStaff.VisitedLinkColor = Color.White;
@@ -308,7 +308,7 @@
             customButtonDatabase.Location = new Point(350, 643);
             customButtonDatabase.Name = "customButtonDatabase";
             customButtonDatabase.Size = new Size(119, 49);
-            customButtonDatabase.TabIndex = 9;
+            customButtonDatabase.TabIndex = 10;
             customButtonDatabase.Text = "Database";
             customButtonDatabase.UseVisualStyleBackColor = false;
             customButtonDatabase.Click += customButtonDatabase_Click;

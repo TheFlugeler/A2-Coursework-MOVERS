@@ -133,6 +133,16 @@ namespace Movers_Booking_System.Media {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap MOVERS_Background {
+            get {
+                object obj = ResourceManager.GetObject("MOVERS Background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap MOVERS_Logo___Dark {
             get {
                 object obj = ResourceManager.GetObject("MOVERS Logo - Dark", resourceCulture);

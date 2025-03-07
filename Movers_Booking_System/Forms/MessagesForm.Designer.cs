@@ -117,7 +117,7 @@
             buttonJob.Location = new Point(479, 154);
             buttonJob.Name = "buttonJob";
             buttonJob.Size = new Size(30, 30);
-            buttonJob.TabIndex = 8;
+            buttonJob.TabIndex = 2;
             buttonJob.UseVisualStyleBackColor = true;
             buttonJob.Click += buttonJob_Click;
             // 
@@ -130,7 +130,7 @@
             buttonEstimate.Location = new Point(479, 100);
             buttonEstimate.Name = "buttonEstimate";
             buttonEstimate.Size = new Size(30, 30);
-            buttonEstimate.TabIndex = 7;
+            buttonEstimate.TabIndex = 1;
             buttonEstimate.UseVisualStyleBackColor = true;
             buttonEstimate.Click += buttonEstimate_Click;
             // 
@@ -211,7 +211,7 @@
             customButtonDelete.Location = new Point(812, 566);
             customButtonDelete.Name = "customButtonDelete";
             customButtonDelete.Size = new Size(148, 50);
-            customButtonDelete.TabIndex = 8;
+            customButtonDelete.TabIndex = 3;
             customButtonDelete.Text = "Delete All";
             customButtonDelete.UseVisualStyleBackColor = false;
             customButtonDelete.Click += customButtonDelete_Click;

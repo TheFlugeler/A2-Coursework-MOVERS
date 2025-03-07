@@ -141,7 +141,7 @@
             customButtonSubmit.Location = new Point(1066, 571);
             customButtonSubmit.Name = "customButtonSubmit";
             customButtonSubmit.Size = new Size(115, 50);
-            customButtonSubmit.TabIndex = 1;
+            customButtonSubmit.TabIndex = 15;
             customButtonSubmit.Text = "Submit";
             customButtonSubmit.UseVisualStyleBackColor = false;
             customButtonSubmit.Click += customButtonSubmit_Click;
@@ -188,7 +188,7 @@
             textBoxAmountPaid.Location = new Point(730, 369);
             textBoxAmountPaid.Name = "textBoxAmountPaid";
             textBoxAmountPaid.Size = new Size(156, 26);
-            textBoxAmountPaid.TabIndex = 32;
+            textBoxAmountPaid.TabIndex = 14;
             // 
             // customButtonRemoveSpecialItem
             // 
@@ -203,7 +203,7 @@
             customButtonRemoveSpecialItem.Location = new Point(790, 200);
             customButtonRemoveSpecialItem.Name = "customButtonRemoveSpecialItem";
             customButtonRemoveSpecialItem.Size = new Size(75, 29);
-            customButtonRemoveSpecialItem.TabIndex = 31;
+            customButtonRemoveSpecialItem.TabIndex = 13;
             customButtonRemoveSpecialItem.Text = "Remove";
             customButtonRemoveSpecialItem.UseVisualStyleBackColor = false;
             customButtonRemoveSpecialItem.Click += customButtonRemoveSpecialItem_Click;
@@ -237,7 +237,7 @@
             checkBoxApartment.Location = new Point(237, 420);
             checkBoxApartment.Name = "checkBoxApartment";
             checkBoxApartment.Size = new Size(18, 17);
-            checkBoxApartment.TabIndex = 27;
+            checkBoxApartment.TabIndex = 8;
             checkBoxApartment.UseVisualStyleBackColor = true;
             checkBoxApartment.CheckedChanged += checkBoxApartment_CheckedChanged;
             // 
@@ -254,7 +254,7 @@
             customButtonAddSpecialItem.Location = new Point(730, 200);
             customButtonAddSpecialItem.Name = "customButtonAddSpecialItem";
             customButtonAddSpecialItem.Size = new Size(54, 29);
-            customButtonAddSpecialItem.TabIndex = 26;
+            customButtonAddSpecialItem.TabIndex = 12;
             customButtonAddSpecialItem.Text = "Add";
             customButtonAddSpecialItem.UseVisualStyleBackColor = false;
             customButtonAddSpecialItem.Click += customButtonAddSpecialItem_Click;
@@ -267,7 +267,7 @@
             comboBoxSpecialItem.Location = new Point(730, 168);
             comboBoxSpecialItem.Name = "comboBoxSpecialItem";
             comboBoxSpecialItem.Size = new Size(277, 26);
-            comboBoxSpecialItem.TabIndex = 25;
+            comboBoxSpecialItem.TabIndex = 11;
             // 
             // labelItems
             // 
@@ -375,7 +375,7 @@
             richTextBoxSpecialItems.Name = "richTextBoxSpecialItems";
             richTextBoxSpecialItems.ReadOnly = true;
             richTextBoxSpecialItems.Size = new Size(277, 117);
-            richTextBoxSpecialItems.TabIndex = 15;
+            richTextBoxSpecialItems.TabIndex = 100;
             richTextBoxSpecialItems.Text = "";
             // 
             // richTextBoxExtraRequirements
@@ -384,7 +384,7 @@
             richTextBoxExtraRequirements.Location = new Point(730, 72);
             richTextBoxExtraRequirements.Name = "richTextBoxExtraRequirements";
             richTextBoxExtraRequirements.Size = new Size(277, 74);
-            richTextBoxExtraRequirements.TabIndex = 14;
+            richTextBoxExtraRequirements.TabIndex = 10;
             richTextBoxExtraRequirements.Text = "";
             // 
             // checkBoxFurnitureAssembly
@@ -394,7 +394,7 @@
             checkBoxFurnitureAssembly.Location = new Point(237, 447);
             checkBoxFurnitureAssembly.Name = "checkBoxFurnitureAssembly";
             checkBoxFurnitureAssembly.Size = new Size(18, 17);
-            checkBoxFurnitureAssembly.TabIndex = 13;
+            checkBoxFurnitureAssembly.TabIndex = 9;
             checkBoxFurnitureAssembly.UseVisualStyleBackColor = true;
             // 
             // checkBoxSelfPacked
@@ -404,7 +404,7 @@
             checkBoxSelfPacked.Location = new Point(237, 394);
             checkBoxSelfPacked.Name = "checkBoxSelfPacked";
             checkBoxSelfPacked.Size = new Size(18, 17);
-            checkBoxSelfPacked.TabIndex = 12;
+            checkBoxSelfPacked.TabIndex = 7;
             checkBoxSelfPacked.UseVisualStyleBackColor = true;
             // 
             // numericUpDownBoxes
@@ -414,7 +414,7 @@
             numericUpDownBoxes.Location = new Point(237, 355);
             numericUpDownBoxes.Name = "numericUpDownBoxes";
             numericUpDownBoxes.Size = new Size(65, 26);
-            numericUpDownBoxes.TabIndex = 11;
+            numericUpDownBoxes.TabIndex = 6;
             numericUpDownBoxes.ValueChanged += numericUpDownBoxes_ValueChanged;
             // 
             // numericUpDownRooms
@@ -423,7 +423,7 @@
             numericUpDownRooms.Location = new Point(237, 318);
             numericUpDownRooms.Name = "numericUpDownRooms";
             numericUpDownRooms.Size = new Size(65, 26);
-            numericUpDownRooms.TabIndex = 10;
+            numericUpDownRooms.TabIndex = 5;
             // 
             // richTextBoxNewAddress
             // 
@@ -431,7 +431,7 @@
             richTextBoxNewAddress.Location = new Point(237, 234);
             richTextBoxNewAddress.Name = "richTextBoxNewAddress";
             richTextBoxNewAddress.Size = new Size(277, 74);
-            richTextBoxNewAddress.TabIndex = 8;
+            richTextBoxNewAddress.TabIndex = 4;
             richTextBoxNewAddress.Text = "";
             // 
             // richTextBoxOldAddress
@@ -440,7 +440,7 @@
             richTextBoxOldAddress.Location = new Point(237, 150);
             richTextBoxOldAddress.Name = "richTextBoxOldAddress";
             richTextBoxOldAddress.Size = new Size(277, 74);
-            richTextBoxOldAddress.TabIndex = 7;
+            richTextBoxOldAddress.TabIndex = 3;
             richTextBoxOldAddress.Text = "";
             // 
             // dateTimePickerJobDate
@@ -449,7 +449,7 @@
             dateTimePickerJobDate.Location = new Point(237, 112);
             dateTimePickerJobDate.Name = "dateTimePickerJobDate";
             dateTimePickerJobDate.Size = new Size(277, 26);
-            dateTimePickerJobDate.TabIndex = 6;
+            dateTimePickerJobDate.TabIndex = 2;
             // 
             // labelCustomer
             // 
@@ -470,7 +470,7 @@
             comboBoxCustomer.Location = new Point(237, 72);
             comboBoxCustomer.Name = "comboBoxCustomer";
             comboBoxCustomer.Size = new Size(277, 26);
-            comboBoxCustomer.TabIndex = 4;
+            comboBoxCustomer.TabIndex = 1;
             // 
             // labelCreateEstimate
             // 

@@ -118,7 +118,7 @@
             numericUpDownWorkers.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numericUpDownWorkers.Name = "numericUpDownWorkers";
             numericUpDownWorkers.Size = new Size(86, 32);
-            numericUpDownWorkers.TabIndex = 13;
+            numericUpDownWorkers.TabIndex = 3;
             numericUpDownWorkers.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // labelWorkers
@@ -149,7 +149,7 @@
             textBoxPrice.Location = new Point(221, 168);
             textBoxPrice.Name = "textBoxPrice";
             textBoxPrice.Size = new Size(227, 32);
-            textBoxPrice.TabIndex = 10;
+            textBoxPrice.TabIndex = 2;
             // 
             // textBoxName
             // 
@@ -205,7 +205,7 @@
             customButtonSubmit.Location = new Point(802, 496);
             customButtonSubmit.Name = "customButtonSubmit";
             customButtonSubmit.Size = new Size(118, 56);
-            customButtonSubmit.TabIndex = 7;
+            customButtonSubmit.TabIndex = 4;
             customButtonSubmit.Text = "Submit";
             customButtonSubmit.UseVisualStyleBackColor = false;
             customButtonSubmit.Click += customButtonSubmit_Click;
