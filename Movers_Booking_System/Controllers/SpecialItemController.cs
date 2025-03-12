@@ -13,7 +13,7 @@ public class SpecialItemController
             errorMessage = "Price is not in valid format";
             return false;
         }
-        if (specialItemPrice < 0)
+        if (specialItemPrice < 0 || specialItemPrice > 500)
         {
             errorMessage = "Price is not in valid range";
             return false;

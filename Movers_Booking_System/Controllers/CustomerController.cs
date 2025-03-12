@@ -13,10 +13,21 @@ public static class CustomerController
         errorMessage = "";
         return msg;
     }
-    private static bool ValidateCustomerDetails(Customer cust)
+    private static bool ValidateCustomerDetails(Customer cust, bool editMode)
     {
         var emailTool = new EmailAddressAttribute();
         List<Customer> custList = DAL.GetCustomerList();
+        if (editMode)
+        {
+            foreach (Customer c in custList)
+            {
+                if (c.ID == cust.ID)
+                {
+                    custList.Remove(c);
+                    break;                
+                }                
+            }
+        }
         foreach (Customer c in custList)
         {
             if (c.TelNo == cust.TelNo)
@@ -100,7 +111,7 @@ public static class CustomerController
     }
     public static bool WriteCustomer(Customer cust, bool editMode)
     {
-        if (!ValidateCustomerDetails(cust)) return false;
+        if (!ValidateCustomerDetails(cust, editMode)) return false;
         else
         {
             if (editMode)

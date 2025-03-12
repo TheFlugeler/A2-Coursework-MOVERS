@@ -57,6 +57,7 @@ public class JobController
             !ValidationTool.ContainsOnlyLettersNumbersAndPunctuation(job.OldAddress)) 
             errorMessage = "Address is in invalid format";
         if (job.AmountPaid < 0) errorMessage = "Invalid Amount Paid";
+        if (job.AmountPaid > job.Price) errorMessage = "Amount paid cannot be more than job price";
 
         if (errorMessage == "") return true;
         return false;
@@ -226,14 +227,18 @@ public class JobController
         {
             errorMessage = "50% Deposit must be paid before converting";
             return false;
+        }else if (job.AmountPaid > job.Price)
+        {
+            errorMessage = "Amount paid cannot be more than the job price";
+            return false;
         }
+
         if (DAL.UpdateJob(job) == 1) return true;
         else
         {
             errorMessage = "Update Job Query Failed";
             return false;
         }
-
     }
     private static string GetJobSummary(Job job)
     {
