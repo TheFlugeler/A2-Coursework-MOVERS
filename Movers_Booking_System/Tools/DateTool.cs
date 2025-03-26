@@ -7,7 +7,7 @@ public static class DateTool
     private static string errorMessage = string.Empty;
     public static bool IsNonNegotiableHoliday(DateTime date)
     {
-        //Checks Christmas Eve, Christmas Day an Boxing Day
+        //Checks Christmas Eve, Christmas Day and Boxing Day
         if (date.Month == 12 && (date.Day == 24 || date.Day == 25 || date.Day == 26)) return true;
 
         //Checks Easter Sunday and Easter Monday

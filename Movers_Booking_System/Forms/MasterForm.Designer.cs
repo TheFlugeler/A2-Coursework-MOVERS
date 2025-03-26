@@ -38,7 +38,7 @@
             panelMaster.Dock = DockStyle.Fill;
             panelMaster.Location = new Point(0, 0);
             panelMaster.Name = "panelMaster";
-            panelMaster.Size = new Size(1262, 744);
+            panelMaster.Size = new Size(1258, 740);
             panelMaster.TabIndex = 0;
             // 
             // MasterForm
@@ -48,7 +48,9 @@
             ClientSize = new Size(1262, 744);
             Controls.Add(panelMaster);
             Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            FormBorderStyle = FormBorderStyle.Fixed3D;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             MaximumSize = new Size(1280, 791);
             MinimumSize = new Size(1280, 791);
             Name = "MasterForm";

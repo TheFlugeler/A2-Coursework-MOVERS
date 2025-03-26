@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             panelTopBar = new Panel();
             buttonBack = new Button();
             labelProfile = new Label();
@@ -49,9 +50,18 @@
             customButtonSubmit = new CustControlLib.CustomButton();
             linkLabelNewStaff = new LinkLabel();
             customButtonDatabase = new CustControlLib.CustomButton();
+            pictureBoxCustomer = new PictureBox();
+            pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
+            pictureBoxPassword = new PictureBox();
+            toolTip = new ToolTip(components);
             panelTopBar.SuspendLayout();
             panelForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxProfile).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxCustomer).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxPassword).BeginInit();
             SuspendLayout();
             // 
             // panelTopBar
@@ -104,6 +114,10 @@
             // panelForm
             // 
             panelForm.BackColor = Color.FromArgb(30, 125, 187);
+            panelForm.Controls.Add(pictureBoxPassword);
+            panelForm.Controls.Add(pictureBox2);
+            panelForm.Controls.Add(pictureBox1);
+            panelForm.Controls.Add(pictureBoxCustomer);
             panelForm.Controls.Add(checkBox1);
             panelForm.Controls.Add(buttonRight);
             panelForm.Controls.Add(buttonLeft);
@@ -313,6 +327,50 @@
             customButtonDatabase.UseVisualStyleBackColor = false;
             customButtonDatabase.Click += customButtonDatabase_Click;
             // 
+            // pictureBoxCustomer
+            // 
+            pictureBoxCustomer.Image = Media.SystemImages.question;
+            pictureBoxCustomer.Location = new Point(502, 100);
+            pictureBoxCustomer.Name = "pictureBoxCustomer";
+            pictureBoxCustomer.Size = new Size(25, 25);
+            pictureBoxCustomer.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxCustomer.TabIndex = 19;
+            pictureBoxCustomer.TabStop = false;
+            toolTip.SetToolTip(pictureBoxCustomer, "Must only be letters and numbers without spaces");
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Media.SystemImages.question;
+            pictureBox1.Location = new Point(502, 151);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(25, 25);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 20;
+            pictureBox1.TabStop = false;
+            toolTip.SetToolTip(pictureBox1, "Must only be letters");
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = Media.SystemImages.question;
+            pictureBox2.Location = new Point(502, 202);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(25, 25);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 21;
+            pictureBox2.TabStop = false;
+            toolTip.SetToolTip(pictureBox2, "Must only be letters");
+            // 
+            // pictureBoxPassword
+            // 
+            pictureBoxPassword.Image = Media.SystemImages.question;
+            pictureBoxPassword.Location = new Point(502, 253);
+            pictureBoxPassword.Name = "pictureBoxPassword";
+            pictureBoxPassword.Size = new Size(25, 25);
+            pictureBoxPassword.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxPassword.TabIndex = 22;
+            pictureBoxPassword.TabStop = false;
+            toolTip.SetToolTip(pictureBoxPassword, "Password must be 10 characters long and contain both letter cases, a number and a special character");
+            // 
             // ProfileForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -331,6 +389,10 @@
             panelForm.ResumeLayout(false);
             panelForm.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxProfile).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxCustomer).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxPassword).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -358,5 +420,10 @@
         private TextBox textBoxPassword;
         private LinkLabel linkLabelNewStaff;
         private CustControlLib.CustomButton customButtonDatabase;
+        private PictureBox pictureBoxPassword;
+        private PictureBox pictureBox2;
+        private ToolTip toolTip;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBoxCustomer;
     }
 }

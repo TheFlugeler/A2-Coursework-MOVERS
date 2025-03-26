@@ -21,6 +21,9 @@ public partial class EstimateForm : Form
         numericUpDownRooms.Maximum = 4;
         labelAmountPaid.Visible = false;
         textBoxAmountPaid.Visible = false;
+        labelPrice.Visible = false;
+        textBoxPrice.Visible = false;
+        pictureBoxAmountPaid.Visible = false;
         textBoxAmountPaid.Text = "0";
 
         originalVans = [0, 0, 0];
@@ -59,6 +62,10 @@ public partial class EstimateForm : Form
         textBoxAmountPaid.Text = job.AmountPaid.ToString();
         labelAmountPaid.Visible = job.Confirmed;
         textBoxAmountPaid.Visible = job.Confirmed;
+        pictureBoxAmountPaid.Visible = job.Confirmed;
+        labelPrice.Visible = job.Confirmed;
+        textBoxPrice.Visible = job.Confirmed;
+        textBoxPrice.Text = job.Price.ToString();   
 
         editMode = true;
         UpdateItemList();

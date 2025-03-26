@@ -16,6 +16,7 @@ internal static class Program
         Application.Run(new LoadingForm());
 
     }
+    //Sets local database path for DAL to access
     static void SetupDatabasePath()
     {
         string outputDirPath = Path.GetDirectoryName(Application.ExecutablePath);

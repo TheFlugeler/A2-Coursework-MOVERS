@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             panelTopBar = new Panel();
             labelEstimate = new Label();
             buttonBack = new Button();
@@ -35,6 +36,17 @@
             panelFormArea = new Panel();
             customButtonSubmit = new CustControlLib.CustomButton();
             panelForm = new Panel();
+            pictureBoxAmountPaid = new PictureBox();
+            pictureBoxItems = new PictureBox();
+            pictureBoxRequirements = new PictureBox();
+            pictureBoxBoxes = new PictureBox();
+            pictureBoxRooms = new PictureBox();
+            pictureBoxNewAddress = new PictureBox();
+            pictureBoxOldAddress = new PictureBox();
+            pictureBoxDate = new PictureBox();
+            pictureBoxCustomer = new PictureBox();
+            textBoxPrice = new TextBox();
+            labelPrice = new Label();
             textBoxAmountPaid = new TextBox();
             customButtonRemoveSpecialItem = new CustControlLib.CustomButton();
             labelAmountPaid = new Label();
@@ -63,9 +75,19 @@
             labelCustomer = new Label();
             comboBoxCustomer = new ComboBox();
             labelCreateEstimate = new Label();
+            toolTip = new ToolTip(components);
             panelTopBar.SuspendLayout();
             panelFormArea.SuspendLayout();
             panelForm.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxAmountPaid).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxItems).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxRequirements).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxBoxes).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxRooms).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxNewAddress).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxOldAddress).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxDate).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxCustomer).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownBoxes).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownRooms).BeginInit();
             SuspendLayout();
@@ -138,7 +160,7 @@
             customButtonSubmit.FlatStyle = FlatStyle.Flat;
             customButtonSubmit.Font = new Font("Bahnschrift", 12F);
             customButtonSubmit.ForeColor = Color.White;
-            customButtonSubmit.Location = new Point(1066, 571);
+            customButtonSubmit.Location = new Point(1066, 552);
             customButtonSubmit.Name = "customButtonSubmit";
             customButtonSubmit.Size = new Size(115, 50);
             customButtonSubmit.TabIndex = 15;
@@ -149,6 +171,17 @@
             // panelForm
             // 
             panelForm.BackColor = Color.FromArgb(30, 125, 187);
+            panelForm.Controls.Add(pictureBoxAmountPaid);
+            panelForm.Controls.Add(pictureBoxItems);
+            panelForm.Controls.Add(pictureBoxRequirements);
+            panelForm.Controls.Add(pictureBoxBoxes);
+            panelForm.Controls.Add(pictureBoxRooms);
+            panelForm.Controls.Add(pictureBoxNewAddress);
+            panelForm.Controls.Add(pictureBoxOldAddress);
+            panelForm.Controls.Add(pictureBoxDate);
+            panelForm.Controls.Add(pictureBoxCustomer);
+            panelForm.Controls.Add(textBoxPrice);
+            panelForm.Controls.Add(labelPrice);
             panelForm.Controls.Add(textBoxAmountPaid);
             panelForm.Controls.Add(customButtonRemoveSpecialItem);
             panelForm.Controls.Add(labelAmountPaid);
@@ -179,15 +212,134 @@
             panelForm.Controls.Add(labelCreateEstimate);
             panelForm.Location = new Point(81, 60);
             panelForm.Name = "panelForm";
-            panelForm.Size = new Size(1100, 503);
+            panelForm.Size = new Size(1100, 486);
             panelForm.TabIndex = 0;
+            // 
+            // pictureBoxAmountPaid
+            // 
+            pictureBoxAmountPaid.Image = Media.SystemImages.question;
+            pictureBoxAmountPaid.Location = new Point(926, 373);
+            pictureBoxAmountPaid.Name = "pictureBoxAmountPaid";
+            pictureBoxAmountPaid.Size = new Size(20, 20);
+            pictureBoxAmountPaid.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxAmountPaid.TabIndex = 111;
+            pictureBoxAmountPaid.TabStop = false;
+            toolTip.SetToolTip(pictureBoxAmountPaid, "Amount paid must be greater than the 50% deposit");
+            // 
+            // pictureBoxItems
+            // 
+            pictureBoxItems.Image = Media.SystemImages.question;
+            pictureBoxItems.Location = new Point(1047, 172);
+            pictureBoxItems.Name = "pictureBoxItems";
+            pictureBoxItems.Size = new Size(20, 20);
+            pictureBoxItems.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxItems.TabIndex = 110;
+            pictureBoxItems.TabStop = false;
+            toolTip.SetToolTip(pictureBoxItems, "Select preexisting special item");
+            // 
+            // pictureBoxRequirements
+            // 
+            pictureBoxRequirements.Image = Media.SystemImages.question;
+            pictureBoxRequirements.Location = new Point(1047, 75);
+            pictureBoxRequirements.Name = "pictureBoxRequirements";
+            pictureBoxRequirements.Size = new Size(20, 20);
+            pictureBoxRequirements.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxRequirements.TabIndex = 109;
+            pictureBoxRequirements.TabStop = false;
+            toolTip.SetToolTip(pictureBoxRequirements, "Extra information for moving staff");
+            // 
+            // pictureBoxBoxes
+            // 
+            pictureBoxBoxes.Image = Media.SystemImages.question;
+            pictureBoxBoxes.Location = new Point(313, 358);
+            pictureBoxBoxes.Name = "pictureBoxBoxes";
+            pictureBoxBoxes.Size = new Size(20, 20);
+            pictureBoxBoxes.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxBoxes.TabIndex = 108;
+            pictureBoxBoxes.TabStop = false;
+            toolTip.SetToolTip(pictureBoxBoxes, "Must be in increments of 10 boxes");
+            // 
+            // pictureBoxRooms
+            // 
+            pictureBoxRooms.Image = Media.SystemImages.question;
+            pictureBoxRooms.Location = new Point(313, 321);
+            pictureBoxRooms.Name = "pictureBoxRooms";
+            pictureBoxRooms.Size = new Size(20, 20);
+            pictureBoxRooms.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxRooms.TabIndex = 107;
+            pictureBoxRooms.TabStop = false;
+            toolTip.SetToolTip(pictureBoxRooms, "For a house must be between 1 and 4. For an apartment must be between 1 and 2");
+            // 
+            // pictureBoxNewAddress
+            // 
+            pictureBoxNewAddress.Image = Media.SystemImages.question;
+            pictureBoxNewAddress.Location = new Point(520, 238);
+            pictureBoxNewAddress.Name = "pictureBoxNewAddress";
+            pictureBoxNewAddress.Size = new Size(20, 20);
+            pictureBoxNewAddress.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxNewAddress.TabIndex = 106;
+            pictureBoxNewAddress.TabStop = false;
+            toolTip.SetToolTip(pictureBoxNewAddress, "Must only contain letters, numbers and punctuation");
+            // 
+            // pictureBoxOldAddress
+            // 
+            pictureBoxOldAddress.Image = Media.SystemImages.question;
+            pictureBoxOldAddress.Location = new Point(520, 154);
+            pictureBoxOldAddress.Name = "pictureBoxOldAddress";
+            pictureBoxOldAddress.Size = new Size(20, 20);
+            pictureBoxOldAddress.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxOldAddress.TabIndex = 105;
+            pictureBoxOldAddress.TabStop = false;
+            toolTip.SetToolTip(pictureBoxOldAddress, "Must only contain letters, numbers and punctuation");
+            // 
+            // pictureBoxDate
+            // 
+            pictureBoxDate.Image = Media.SystemImages.question;
+            pictureBoxDate.Location = new Point(520, 116);
+            pictureBoxDate.Name = "pictureBoxDate";
+            pictureBoxDate.Size = new Size(20, 20);
+            pictureBoxDate.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxDate.TabIndex = 104;
+            pictureBoxDate.TabStop = false;
+            toolTip.SetToolTip(pictureBoxDate, "Christmas and Easter Holidays cannot be selected. Sundays and public holidays incur an extra cost");
+            // 
+            // pictureBoxCustomer
+            // 
+            pictureBoxCustomer.Image = Media.SystemImages.question;
+            pictureBoxCustomer.Location = new Point(520, 75);
+            pictureBoxCustomer.Name = "pictureBoxCustomer";
+            pictureBoxCustomer.Size = new Size(20, 20);
+            pictureBoxCustomer.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxCustomer.TabIndex = 103;
+            pictureBoxCustomer.TabStop = false;
+            toolTip.SetToolTip(pictureBoxCustomer, "Select Existing Customer");
+            // 
+            // textBoxPrice
+            // 
+            textBoxPrice.Font = new Font("Bahnschrift", 9F);
+            textBoxPrice.Location = new Point(761, 414);
+            textBoxPrice.Name = "textBoxPrice";
+            textBoxPrice.ReadOnly = true;
+            textBoxPrice.Size = new Size(159, 26);
+            textBoxPrice.TabIndex = 102;
+            // 
+            // labelPrice
+            // 
+            labelPrice.AutoSize = true;
+            labelPrice.Font = new Font("Bahnschrift", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelPrice.ForeColor = Color.White;
+            labelPrice.Location = new Point(623, 416);
+            labelPrice.Name = "labelPrice";
+            labelPrice.Size = new Size(128, 24);
+            labelPrice.TabIndex = 101;
+            labelPrice.Text = "Total Price  £";
             // 
             // textBoxAmountPaid
             // 
             textBoxAmountPaid.Font = new Font("Bahnschrift", 9F);
-            textBoxAmountPaid.Location = new Point(730, 369);
+            textBoxAmountPaid.Location = new Point(761, 369);
             textBoxAmountPaid.Name = "textBoxAmountPaid";
-            textBoxAmountPaid.Size = new Size(156, 26);
+            textBoxAmountPaid.Size = new Size(159, 26);
             textBoxAmountPaid.TabIndex = 14;
             // 
             // customButtonRemoveSpecialItem
@@ -200,9 +352,9 @@
             customButtonRemoveSpecialItem.FlatStyle = FlatStyle.Flat;
             customButtonRemoveSpecialItem.Font = new Font("Bahnschrift", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             customButtonRemoveSpecialItem.ForeColor = Color.Black;
-            customButtonRemoveSpecialItem.Location = new Point(790, 200);
+            customButtonRemoveSpecialItem.Location = new Point(821, 200);
             customButtonRemoveSpecialItem.Name = "customButtonRemoveSpecialItem";
-            customButtonRemoveSpecialItem.Size = new Size(75, 29);
+            customButtonRemoveSpecialItem.Size = new Size(78, 29);
             customButtonRemoveSpecialItem.TabIndex = 13;
             customButtonRemoveSpecialItem.Text = "Remove";
             customButtonRemoveSpecialItem.UseVisualStyleBackColor = false;
@@ -213,7 +365,7 @@
             labelAmountPaid.AutoSize = true;
             labelAmountPaid.Font = new Font("Bahnschrift", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             labelAmountPaid.ForeColor = Color.White;
-            labelAmountPaid.Location = new Point(573, 369);
+            labelAmountPaid.Location = new Point(604, 369);
             labelAmountPaid.Name = "labelAmountPaid";
             labelAmountPaid.Size = new Size(151, 24);
             labelAmountPaid.TabIndex = 30;
@@ -251,9 +403,9 @@
             customButtonAddSpecialItem.FlatStyle = FlatStyle.Flat;
             customButtonAddSpecialItem.Font = new Font("Bahnschrift", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             customButtonAddSpecialItem.ForeColor = Color.Black;
-            customButtonAddSpecialItem.Location = new Point(730, 200);
+            customButtonAddSpecialItem.Location = new Point(761, 200);
             customButtonAddSpecialItem.Name = "customButtonAddSpecialItem";
-            customButtonAddSpecialItem.Size = new Size(54, 29);
+            customButtonAddSpecialItem.Size = new Size(57, 29);
             customButtonAddSpecialItem.TabIndex = 12;
             customButtonAddSpecialItem.Text = "Add";
             customButtonAddSpecialItem.UseVisualStyleBackColor = false;
@@ -264,9 +416,9 @@
             comboBoxSpecialItem.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxSpecialItem.Font = new Font("Bahnschrift", 9F);
             comboBoxSpecialItem.FormattingEnabled = true;
-            comboBoxSpecialItem.Location = new Point(730, 168);
+            comboBoxSpecialItem.Location = new Point(761, 168);
             comboBoxSpecialItem.Name = "comboBoxSpecialItem";
-            comboBoxSpecialItem.Size = new Size(277, 26);
+            comboBoxSpecialItem.Size = new Size(280, 26);
             comboBoxSpecialItem.TabIndex = 11;
             // 
             // labelItems
@@ -274,7 +426,7 @@
             labelItems.AutoSize = true;
             labelItems.Font = new Font("Bahnschrift", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             labelItems.ForeColor = Color.White;
-            labelItems.Location = new Point(592, 168);
+            labelItems.Location = new Point(623, 168);
             labelItems.Name = "labelItems";
             labelItems.Size = new Size(132, 24);
             labelItems.TabIndex = 24;
@@ -285,7 +437,7 @@
             labelRequirements.AutoSize = true;
             labelRequirements.Font = new Font("Bahnschrift", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             labelRequirements.ForeColor = Color.White;
-            labelRequirements.Location = new Point(533, 72);
+            labelRequirements.Location = new Point(564, 72);
             labelRequirements.Name = "labelRequirements";
             labelRequirements.Size = new Size(191, 24);
             labelRequirements.TabIndex = 23;
@@ -371,19 +523,19 @@
             // richTextBoxSpecialItems
             // 
             richTextBoxSpecialItems.Font = new Font("Bahnschrift", 9F);
-            richTextBoxSpecialItems.Location = new Point(730, 236);
+            richTextBoxSpecialItems.Location = new Point(761, 236);
             richTextBoxSpecialItems.Name = "richTextBoxSpecialItems";
             richTextBoxSpecialItems.ReadOnly = true;
-            richTextBoxSpecialItems.Size = new Size(277, 117);
+            richTextBoxSpecialItems.Size = new Size(280, 117);
             richTextBoxSpecialItems.TabIndex = 100;
             richTextBoxSpecialItems.Text = "";
             // 
             // richTextBoxExtraRequirements
             // 
             richTextBoxExtraRequirements.Font = new Font("Bahnschrift", 9F);
-            richTextBoxExtraRequirements.Location = new Point(730, 72);
+            richTextBoxExtraRequirements.Location = new Point(761, 72);
             richTextBoxExtraRequirements.Name = "richTextBoxExtraRequirements";
-            richTextBoxExtraRequirements.Size = new Size(277, 74);
+            richTextBoxExtraRequirements.Size = new Size(280, 74);
             richTextBoxExtraRequirements.TabIndex = 10;
             richTextBoxExtraRequirements.Text = "";
             // 
@@ -498,6 +650,15 @@
             panelFormArea.ResumeLayout(false);
             panelForm.ResumeLayout(false);
             panelForm.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxAmountPaid).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxItems).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxRequirements).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxBoxes).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxRooms).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxNewAddress).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxOldAddress).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxDate).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxCustomer).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownBoxes).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownRooms).EndInit();
             ResumeLayout(false);
@@ -540,5 +701,17 @@
         private Label labelAmountPaid;
         private CustControlLib.CustomButton customButtonRemoveSpecialItem;
         private TextBox textBoxAmountPaid;
+        private TextBox textBoxPrice;
+        private Label labelPrice;
+        private PictureBox pictureBoxAmountPaid;
+        private PictureBox pictureBoxItems;
+        private PictureBox pictureBoxRequirements;
+        private PictureBox pictureBoxBoxes;
+        private PictureBox pictureBoxRooms;
+        private PictureBox pictureBoxNewAddress;
+        private PictureBox pictureBoxOldAddress;
+        private PictureBox pictureBoxDate;
+        private PictureBox pictureBoxCustomer;
+        private ToolTip toolTip;
     }
 }

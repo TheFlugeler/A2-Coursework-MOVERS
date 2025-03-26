@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             panelTopBar = new Panel();
             buttonBack = new Button();
             labelCustomer = new Label();
@@ -44,9 +45,18 @@
             labelSurname = new Label();
             labelForename = new Label();
             labelCreateCustomer = new Label();
+            toolTip = new ToolTip(components);
+            pictureBoxForename = new PictureBox();
+            pictureBoxSurname = new PictureBox();
+            pictureBoxTelNo = new PictureBox();
+            pictureBoxEmail = new PictureBox();
             panelTopBar.SuspendLayout();
             panelFormArea.SuspendLayout();
             panelForm.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxForename).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxSurname).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxTelNo).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxEmail).BeginInit();
             SuspendLayout();
             // 
             // panelTopBar
@@ -128,6 +138,10 @@
             // panelForm
             // 
             panelForm.BackColor = Color.FromArgb(30, 125, 187);
+            panelForm.Controls.Add(pictureBoxEmail);
+            panelForm.Controls.Add(pictureBoxTelNo);
+            panelForm.Controls.Add(pictureBoxSurname);
+            panelForm.Controls.Add(pictureBoxForename);
             panelForm.Controls.Add(labelEmail);
             panelForm.Controls.Add(textBoxEmail);
             panelForm.Controls.Add(textBoxForename);
@@ -231,6 +245,50 @@
             labelCreateCustomer.TabIndex = 3;
             labelCreateCustomer.Text = "Register Customer";
             // 
+            // pictureBoxForename
+            // 
+            pictureBoxForename.Image = Media.SystemImages.question;
+            pictureBoxForename.Location = new Point(505, 88);
+            pictureBoxForename.Name = "pictureBoxForename";
+            pictureBoxForename.Size = new Size(25, 25);
+            pictureBoxForename.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxForename.TabIndex = 17;
+            pictureBoxForename.TabStop = false;
+            toolTip.SetToolTip(pictureBoxForename, "Name must only contain letters");
+            // 
+            // pictureBoxSurname
+            // 
+            pictureBoxSurname.Image = Media.SystemImages.question;
+            pictureBoxSurname.Location = new Point(505, 141);
+            pictureBoxSurname.Name = "pictureBoxSurname";
+            pictureBoxSurname.Size = new Size(25, 25);
+            pictureBoxSurname.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxSurname.TabIndex = 18;
+            pictureBoxSurname.TabStop = false;
+            toolTip.SetToolTip(pictureBoxSurname, "Name must only contain letters");
+            // 
+            // pictureBoxTelNo
+            // 
+            pictureBoxTelNo.Image = Media.SystemImages.question;
+            pictureBoxTelNo.Location = new Point(505, 194);
+            pictureBoxTelNo.Name = "pictureBoxTelNo";
+            pictureBoxTelNo.Size = new Size(25, 25);
+            pictureBoxTelNo.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxTelNo.TabIndex = 19;
+            pictureBoxTelNo.TabStop = false;
+            toolTip.SetToolTip(pictureBoxTelNo, "Telephone number must be in valid format");
+            // 
+            // pictureBoxEmail
+            // 
+            pictureBoxEmail.Image = Media.SystemImages.question;
+            pictureBoxEmail.Location = new Point(505, 247);
+            pictureBoxEmail.Name = "pictureBoxEmail";
+            pictureBoxEmail.Size = new Size(25, 25);
+            pictureBoxEmail.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxEmail.TabIndex = 20;
+            pictureBoxEmail.TabStop = false;
+            toolTip.SetToolTip(pictureBoxEmail, "Email must be in valid format");
+            // 
             // CustomerForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -246,6 +304,10 @@
             panelFormArea.ResumeLayout(false);
             panelForm.ResumeLayout(false);
             panelForm.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxForename).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxSurname).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxTelNo).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxEmail).EndInit();
             ResumeLayout(false);
         }
 
@@ -267,5 +329,10 @@
         private Label labelForename;
         private Label labelCreateCustomer;
         private CustControlLib.CustomButton customButtonSubmit;
+        private ToolTip toolTip;
+        private PictureBox pictureBoxForename;
+        private PictureBox pictureBoxEmail;
+        private PictureBox pictureBoxTelNo;
+        private PictureBox pictureBoxSurname;
     }
 }

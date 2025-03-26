@@ -35,6 +35,7 @@ public partial class ProfileForm : Form
             textBoxUsername.Text = staff.Username;
             labelPassword.Visible = false;
             textBoxPassword.Visible = false;
+            pictureBoxPassword.Visible = false;
             selectedProfile = staff.Profile;
             username = staff.Username;
             usersProfile = true;
@@ -51,6 +52,7 @@ public partial class ProfileForm : Form
         textBoxUsername.Text = staff.Username;
         labelPassword.Visible = false;
         textBoxPassword.Visible = false;
+        pictureBoxPassword.Visible = false;
         selectedProfile = staff.Profile;
         newStaff = false;
         username = staff.Username;
@@ -135,6 +137,7 @@ public partial class ProfileForm : Form
     {
         labelPassword.Visible = checkBox1.Checked;
         textBoxPassword.Visible = checkBox1.Checked;
+        pictureBoxPassword.Visible = checkBox1.Checked;
     }
 
     private void buttonBack_Click(object sender, EventArgs e) => DisplayController.DisplayForm(new MainForm());

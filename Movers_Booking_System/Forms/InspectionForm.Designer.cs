@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             panelTopBar = new Panel();
             buttonBack = new Button();
             labelInspection = new Label();
@@ -45,8 +46,17 @@
             labelCustomer = new Label();
             labelBookInspection = new Label();
             customButtonSubmit = new CustControlLib.CustomButton();
+            pictureBoxCustomer = new PictureBox();
+            pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
+            pictureBox3 = new PictureBox();
+            toolTip = new ToolTip(components);
             panelTopBar.SuspendLayout();
             panelForm.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxCustomer).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // panelTopBar
@@ -99,6 +109,10 @@
             // panelForm
             // 
             panelForm.BackColor = Color.FromArgb(30, 125, 187);
+            panelForm.Controls.Add(pictureBox3);
+            panelForm.Controls.Add(pictureBox2);
+            panelForm.Controls.Add(pictureBox1);
+            panelForm.Controls.Add(pictureBoxCustomer);
             panelForm.Controls.Add(checkBoxPaid);
             panelForm.Controls.Add(labelPaid);
             panelForm.Controls.Add(dateTimePickerDate);
@@ -112,7 +126,7 @@
             panelForm.Controls.Add(labelBookInspection);
             panelForm.Location = new Point(352, 200);
             panelForm.Name = "panelForm";
-            panelForm.Size = new Size(575, 350);
+            panelForm.Size = new Size(599, 350);
             panelForm.TabIndex = 4;
             // 
             // checkBoxPaid
@@ -235,13 +249,57 @@
             customButtonSubmit.FlatStyle = FlatStyle.Flat;
             customButtonSubmit.Font = new Font("Bahnschrift SemiBold", 12F, FontStyle.Bold);
             customButtonSubmit.ForeColor = Color.White;
-            customButtonSubmit.Location = new Point(822, 556);
+            customButtonSubmit.Location = new Point(846, 556);
             customButtonSubmit.Name = "customButtonSubmit";
             customButtonSubmit.Size = new Size(105, 49);
             customButtonSubmit.TabIndex = 6;
             customButtonSubmit.Text = "Submit";
             customButtonSubmit.UseVisualStyleBackColor = false;
             customButtonSubmit.Click += customButtonSubmit_Click;
+            // 
+            // pictureBoxCustomer
+            // 
+            pictureBoxCustomer.Image = Media.SystemImages.question;
+            pictureBoxCustomer.Location = new Point(527, 94);
+            pictureBoxCustomer.Name = "pictureBoxCustomer";
+            pictureBoxCustomer.Size = new Size(25, 25);
+            pictureBoxCustomer.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxCustomer.TabIndex = 18;
+            pictureBoxCustomer.TabStop = false;
+            toolTip.SetToolTip(pictureBoxCustomer, "Select preexisting customer");
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Media.SystemImages.question;
+            pictureBox1.Location = new Point(527, 144);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(25, 25);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 19;
+            pictureBox1.TabStop = false;
+            toolTip.SetToolTip(pictureBox1, "Must only be letters, numbers and punctuation");
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = Media.SystemImages.question;
+            pictureBox2.Location = new Point(527, 194);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(25, 25);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 20;
+            pictureBox2.TabStop = false;
+            toolTip.SetToolTip(pictureBox2, "Must only be letters, numbers and punctuation");
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = Media.SystemImages.question;
+            pictureBox3.Location = new Point(527, 244);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(25, 25);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 21;
+            pictureBox3.TabStop = false;
+            toolTip.SetToolTip(pictureBox3, "Public holidays and sundays cannot be booked");
             // 
             // InspectionForm
             // 
@@ -258,6 +316,10 @@
             panelTopBar.PerformLayout();
             panelForm.ResumeLayout(false);
             panelForm.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxCustomer).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
         }
 
@@ -280,5 +342,10 @@
         private Label labelPaid;
         private DateTimePicker dateTimePickerDate;
         private CustControlLib.CustomButton customButtonSubmit;
+        private PictureBox pictureBox3;
+        private ToolTip toolTip;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBoxCustomer;
     }
 }

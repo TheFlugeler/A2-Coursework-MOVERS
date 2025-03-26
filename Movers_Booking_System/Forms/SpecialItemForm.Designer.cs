@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             panelTopBar = new Panel();
             buttonBack = new Button();
             labelSpecialItem = new Label();
@@ -42,9 +43,16 @@
             labelForename = new Label();
             labelCreateSpecialItem = new Label();
             customButtonSubmit = new CustControlLib.CustomButton();
+            pictureBoxCustomer = new PictureBox();
+            pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
+            toolTip = new ToolTip(components);
             panelTopBar.SuspendLayout();
             panelForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownWorkers).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxCustomer).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // panelTopBar
@@ -97,6 +105,9 @@
             // panelForm
             // 
             panelForm.BackColor = Color.FromArgb(30, 125, 187);
+            panelForm.Controls.Add(pictureBox2);
+            panelForm.Controls.Add(pictureBox1);
+            panelForm.Controls.Add(pictureBoxCustomer);
             panelForm.Controls.Add(numericUpDownWorkers);
             panelForm.Controls.Add(labelWorkers);
             panelForm.Controls.Add(label1);
@@ -210,6 +221,39 @@
             customButtonSubmit.UseVisualStyleBackColor = false;
             customButtonSubmit.Click += customButtonSubmit_Click;
             // 
+            // pictureBoxCustomer
+            // 
+            pictureBoxCustomer.Image = Media.SystemImages.question;
+            pictureBoxCustomer.Location = new Point(313, 235);
+            pictureBoxCustomer.Name = "pictureBoxCustomer";
+            pictureBoxCustomer.Size = new Size(25, 25);
+            pictureBoxCustomer.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxCustomer.TabIndex = 20;
+            pictureBoxCustomer.TabStop = false;
+            toolTip.SetToolTip(pictureBoxCustomer, "Workers must be between 1 and 4");
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Media.SystemImages.question;
+            pictureBox1.Location = new Point(454, 172);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(25, 25);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 21;
+            pictureBox1.TabStop = false;
+            toolTip.SetToolTip(pictureBox1, "Price must be between £0 and £500");
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = Media.SystemImages.question;
+            pictureBox2.Location = new Point(454, 109);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(25, 25);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 22;
+            pictureBox2.TabStop = false;
+            toolTip.SetToolTip(pictureBox2, "Name must be unique");
+            // 
             // SpecialItemForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -226,6 +270,9 @@
             panelForm.ResumeLayout(false);
             panelForm.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownWorkers).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxCustomer).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
         }
 
@@ -245,5 +292,9 @@
         private Label label1;
         private NumericUpDown numericUpDownWorkers;
         private Label labelWorkers;
+        private PictureBox pictureBox2;
+        private ToolTip toolTip;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBoxCustomer;
     }
 }

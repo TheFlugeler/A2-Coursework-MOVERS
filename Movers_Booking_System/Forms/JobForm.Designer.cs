@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             panelFormArea = new Panel();
             customButtonSubmit = new CustControlLib.CustomButton();
             panelForm = new Panel();
@@ -44,9 +45,14 @@
             labelJob = new Label();
             buttonBack = new Button();
             panelLogo = new Panel();
+            pictureBoxCustomer = new PictureBox();
+            pictureBox1 = new PictureBox();
+            toolTip = new ToolTip(components);
             panelFormArea.SuspendLayout();
             panelForm.SuspendLayout();
             panelTopBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxCustomer).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panelFormArea
@@ -70,7 +76,7 @@
             customButtonSubmit.FlatStyle = FlatStyle.Flat;
             customButtonSubmit.Font = new Font("Bahnschrift SemiBold", 12F, FontStyle.Bold);
             customButtonSubmit.ForeColor = Color.White;
-            customButtonSubmit.Location = new Point(809, 446);
+            customButtonSubmit.Location = new Point(825, 446);
             customButtonSubmit.Name = "customButtonSubmit";
             customButtonSubmit.Size = new Size(111, 48);
             customButtonSubmit.TabIndex = 5;
@@ -81,6 +87,8 @@
             // panelForm
             // 
             panelForm.BackColor = Color.FromArgb(30, 125, 187);
+            panelForm.Controls.Add(pictureBox1);
+            panelForm.Controls.Add(pictureBoxCustomer);
             panelForm.Controls.Add(textBox1);
             panelForm.Controls.Add(labelPaid);
             panelForm.Controls.Add(labelConfirmed);
@@ -92,7 +100,7 @@
             panelForm.Controls.Add(labelCreateJob);
             panelForm.Location = new Point(360, 100);
             panelForm.Name = "panelForm";
-            panelForm.Size = new Size(560, 340);
+            panelForm.Size = new Size(576, 340);
             panelForm.TabIndex = 0;
             // 
             // textBox1
@@ -235,6 +243,28 @@
             panelLogo.Size = new Size(180, 180);
             panelLogo.TabIndex = 0;
             // 
+            // pictureBoxCustomer
+            // 
+            pictureBoxCustomer.Image = Media.SystemImages.question;
+            pictureBoxCustomer.Location = new Point(501, 112);
+            pictureBoxCustomer.Name = "pictureBoxCustomer";
+            pictureBoxCustomer.Size = new Size(25, 25);
+            pictureBoxCustomer.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxCustomer.TabIndex = 19;
+            pictureBoxCustomer.TabStop = false;
+            toolTip.SetToolTip(pictureBoxCustomer, "Select preexisting estimate");
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Media.SystemImages.question;
+            pictureBox1.Location = new Point(501, 263);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(25, 25);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 20;
+            pictureBox1.TabStop = false;
+            toolTip.SetToolTip(pictureBox1, "Amount paid must be at least the 50% deposit");
+            // 
             // JobForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -250,6 +280,8 @@
             panelForm.PerformLayout();
             panelTopBar.ResumeLayout(false);
             panelTopBar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxCustomer).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -276,5 +308,8 @@
         private TextBox textBoxPrice;
         private ComboBox comboBoxEstimate;
         private TextBox textBox1;
+        private PictureBox pictureBox1;
+        private ToolTip toolTip;
+        private PictureBox pictureBoxCustomer;
     }
 }

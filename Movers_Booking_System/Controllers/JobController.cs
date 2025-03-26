@@ -191,6 +191,7 @@ public class JobController
         job.NoLargeVans = vans[2];
         int noWorkers = CalculateTotalWorkers(job.NoRooms, job.SpecialItems);
         job.NoWorkers = noWorkers;
+        job.Price = CalculateEstimateCost(job);
         if (!VerifyEstimate(job, noWorkers, vans, originalVans))
         {
             if (errorMessage.Contains("200"))
@@ -201,7 +202,7 @@ public class JobController
             else return false;
         }
 
-        job.Price = CalculateEstimateCost(job);
+        
 
         if (edit)
         {

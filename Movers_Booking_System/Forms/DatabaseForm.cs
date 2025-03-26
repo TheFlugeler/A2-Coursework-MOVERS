@@ -42,7 +42,4 @@ public partial class DatabaseForm : Form
     }
     private void buttonBack_Click(object sender, EventArgs e) => DisplayController.DisplayForm(new MainForm());
 }
-//FIX DELETING STAFF PROFILES ADD CHECK
-//PUT INTO TESTING SO THERES ACC GOOD STUFF THERE
-//UPDATE STORYBOARDS TOO
 
