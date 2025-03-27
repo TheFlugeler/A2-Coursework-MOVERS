@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Movers_Booking_System")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+733614ac264d1bbeee683451192a8a3e7e22c609")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7ea4477908ff5fbb36ef08cafd1af209a3cca72a")]
 [assembly: System.Reflection.AssemblyProductAttribute("Movers_Booking_System")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Movers_Booking_System")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

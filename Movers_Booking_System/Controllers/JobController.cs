@@ -58,6 +58,7 @@ public class JobController
             errorMessage = "Address is in invalid format";
         if (job.AmountPaid < 0) errorMessage = "Invalid Amount Paid";
         if (job.AmountPaid > job.Price) errorMessage = "Amount paid cannot be more than job price";
+        if (string.IsNullOrEmpty(job.OldAddress) || string.IsNullOrEmpty(job.NewAddress)) errorMessage = "Must input addresses";
 
         if (errorMessage == "") return true;
         return false;

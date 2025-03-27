@@ -23,7 +23,11 @@ public partial class JobForm : Form
         comboBoxEstimate.DataSource = jobNames;
     }
     private void buttonBack_Click(object sender, EventArgs e) => DisplayController.DisplayForm(new MainForm());
-    private void comboBoxEstimate_SelectedIndexChanged(object sender, EventArgs e) => textBoxPrice.Text = $"£{jobList[comboBoxEstimate.SelectedIndex].Price}";
+    private void comboBoxEstimate_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        textBoxPrice.Text = $"£{jobList[comboBoxEstimate.SelectedIndex].Price}";
+        selectedJob = jobList[comboBoxEstimate.SelectedIndex];
+    }
     private void customButtonSubmit_Click(object sender, EventArgs e)
     {
         if (comboBoxEstimate.SelectedIndex < 0)

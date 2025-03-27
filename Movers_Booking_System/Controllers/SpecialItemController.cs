@@ -24,7 +24,7 @@ public class SpecialItemController
             errorMessage = "Name is already registered";
             return false;
         }
-        if (!ValidationTool.ContainsOnlyLettersAndWhitespace(name))
+        if (!ValidationTool.ContainsOnlyLettersAndWhitespace(name) || string.IsNullOrEmpty(name))
         {
             errorMessage = "Name is invalid";
             return false;

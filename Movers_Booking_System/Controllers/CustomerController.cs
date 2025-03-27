@@ -59,12 +59,12 @@ public static class CustomerController
             errorMessage = "Email is in an invalid format";
             return false;
         }
-        if (!ValidationTool.ContainsOnlyLetters(cust.Forename))
+        if (!ValidationTool.ContainsOnlyLetters(cust.Forename) || string.IsNullOrEmpty(cust.Forename))
         {
             errorMessage = "Forename is invalid";
             return false;
         }
-        if (!ValidationTool.ContainsOnlyLetters(cust.Surname))
+        if (!ValidationTool.ContainsOnlyLetters(cust.Surname) || string.IsNullOrEmpty(cust.Surname))
         {
             errorMessage = "Surname is invalid";
             return false;

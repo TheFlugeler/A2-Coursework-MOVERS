@@ -28,6 +28,12 @@ public static class InspectionController
             errorMessage = "Address is in an invalid format";
             return false;
         }
+
+        if (string.IsNullOrEmpty(inspection.OldAddress) || string.IsNullOrEmpty(inspection.NewAddress))
+        {
+            errorMessage = "Must input addresses";
+            return false;
+        }
         return true;
     }
     public static string ReadErrorMessage()

@@ -23,6 +23,7 @@ public partial class ProfileForm : Form
             textBoxPassword.Visible = true;
             textBoxPassword.PlaceholderText = "";
             checkBox1.Visible = false;
+            checkBox1.Checked = true;
             linkLabelNewStaff.Visible = false;
             customButtonDatabase.Visible = false;
             username = "";
@@ -81,22 +82,27 @@ public partial class ProfileForm : Form
         {
             MessageBox.Show("Username is taken", "Error");
             return;
-        }if (!ValidationTool.ContainsOnlyLettersAndNumbers(textBoxUsername.Text))
+        }if (!ValidationTool.ContainsOnlyLettersAndNumbers(textBoxUsername.Text) || string.IsNullOrEmpty(textBoxUsername.Text))
         {
             MessageBox.Show("Username is invalid", "Error");
             return;
-        }if (!ValidationTool.ContainsOnlyLetters(textBoxForename.Text))
+        }if (!ValidationTool.ContainsOnlyLetters(textBoxForename.Text) || string.IsNullOrEmpty(textBoxForename.Text))
         {
             MessageBox.Show("Forename is invalid", "Error");
             return;
-        }if (!ValidationTool.ContainsOnlyLetters(textBoxSurname.Text))
+        }if (!ValidationTool.ContainsOnlyLetters(textBoxSurname.Text) || string.IsNullOrEmpty(textBoxSurname.Text))
         {
             MessageBox.Show("Surname is invalid", "Error");
             return;
-        }if (!ValidationTool.IsSecurePassword(textBoxPassword.Text))
+        }
+
+        if (checkBox1.Checked)
         {
-            MessageBox.Show(ValidationTool.ReadErrorMessage(), "Error");
-            return;
+            if (!ValidationTool.IsSecurePassword(textBoxPassword.Text))
+            {
+                MessageBox.Show(ValidationTool.ReadErrorMessage(), "Error");
+                return;
+            }
         }
 
         if (newStaff)
